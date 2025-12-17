@@ -7,3 +7,8 @@ test --test_output=errors
 
 build --disk_cache=~/.bazel_cache
 build --experimental_disk_cache_gc_idle_delay=5m
+
+# Disable Bazel output for `pre-commit` hooks
+common:pre-commit --ui_event_filters=-info,-stdout,-stderr
+# common:pre-commit --noshow_progress
+common:pre-commit --lockfile_mode=off

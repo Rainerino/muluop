@@ -1,0 +1,13 @@
+# WORKSPACE.bazel - Works in feedback mode with Bzlmod
+# When --enable_bzlmod is set, this file can access repositories created by MODULE.bazel
+# Most dependencies should be defined in MODULE.bazel instead
+
+workspace(name = "muluop")
+
+# In Bzlmod feedback mode, WORKSPACE can reference module repositories
+# For example, you can load from module repositories like this:
+# load("@pip_compute//:requirements.bzl", compute_requirement = "requirement")
+# load("@pip_sim//:requirements.bzl", sim_requirement = "requirement")
+
+# Any legacy WORKSPACE-only dependencies can be added here
+# But prefer using MODULE.bazel for new dependencies

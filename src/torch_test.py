@@ -16,5 +16,6 @@ def main():
 
     ecal_core.finalize()
 
+
 if __name__ == "__main__":
     main()

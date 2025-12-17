@@ -38,5 +38,4 @@ py_test(
         compute_requirement("pytest"),
         ":lib"
     ],
-    size = "small",
 )

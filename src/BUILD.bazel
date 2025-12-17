@@ -8,10 +8,11 @@ py_library(
 )
 
 py_binary(
-    name = "torch_test",
+    name = "torch",
     srcs = ["torch_test.py"],
     deps = [
         compute_requirement("torch"),
+        compute_requirement("numpy"),  # Required by torch
         compute_requirement("eclipse-ecal"),   # note the PyPI name
         ":lib",
     ],
@@ -20,7 +21,7 @@ py_binary(
 )
 
 py_binary(
-    name = "sim_test",
+    name = "sim",
     srcs = ["sim_test.py"],
     deps = [
         sim_requirement("mujoco"),   # note the PyPI name

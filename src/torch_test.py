@@ -7,6 +7,7 @@ def main():
     print(f"Torch version: {torch.__version__}")
     print(f"CUDA available: {torch.cuda.is_available()}")
 
+    
     # 2. Test eclipse-ecal
     # Initialize eCAL (requires a process name)
     ecal_core.initialize("BazelEcalTest")

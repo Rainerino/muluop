@@ -1,0 +1,67 @@
+# Root BUILD file
+
+load("@aspect_rules_py//py:defs.bzl", "py_binary")
+load("@rules_multirun//:defs.bzl", "multirun")
+load("@rules_uv//uv:pip.bzl", "pip_compile")
+load("@rules_uv//uv:venv.bzl", "create_venv")
+
+
+pip_compile(
+    name = "requirements_lock_cu128",
+    # Point to pyproject.toml instead of requirements.in
+    requirements_in = "//:third_party/python/pyproject.toml",
+    requirements_txt = "//:third_party/python/requirements.lock.cu128.txt",
+    
+    python_platform = "x86_64-unknown-linux-gnu",
+    # IMPORTANT: Include your 'dev' dependencies (ruff, mypy, etc.)
+    # so they end up in your lockfile and your venv.
+    args = [
+        "--generate-hashes",
+        "--emit-index-url",
+        "--no-strip-extras",
+        # "--quiet",
+        
+        # Your custom flags
+        "--extra=compute",
+        "--extra=cu128",
+        "--extra=dev",
+        "--index-url=https://pypi.tuna.tsinghua.edu.cn/simple",
+        "--extra-index-url=https://download.pytorch.org/whl/cu128",
+        "--extra-index-url=https://pypi.org/simple"
+    ],
+)
+
+pip_compile(
+    name = "requirements_lock_sim",
+    # Point to pyproject.toml instead of requirements.in
+    requirements_in = "//:third_party/python/pyproject.toml",
+    requirements_txt = "//:third_party/python/requirements.lock.sim.txt",
+    
+    python_platform = "x86_64-unknown-linux-gnu",
+    # IMPORTANT: Include your 'dev' dependencies (ruff, mypy, etc.)
+    # so they end up in your lockfile and your venv.
+    args = [
+        "--generate-hashes",
+        "--emit-index-url",
+        "--no-strip-extras",
+        # "--quiet",
+        
+        # Your custom flags
+        "--extra=sim",
+        "--extra=dev",
+        "--index-url=https://pypi.tuna.tsinghua.edu.cn/simple",
+        "--extra-index-url=https://pypi.org/simple"
+    ],
+)
+
+
+
+multirun(
+    name = "deps",
+    commands = [
+        ":requirements_lock_cu128",
+        ":requirements_lock_sim",
+    ],
+    jobs = 2,
+)
+

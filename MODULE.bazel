@@ -1,0 +1,50 @@
+module(
+    name = "muluop",
+    version = "1.0.0",
+)
+
+bazel_dep(name = "platforms", version = "0.0.11")
+bazel_dep(name = "rules_python", version = "0.40.0")
+bazel_dep(name = "aspect_rules_py", version = "1.6.6")
+bazel_dep(name = "rules_uv", version = "0.89.2")
+bazel_dep(name = "rules_multirun", version = "0.13.0")
+
+
+# Python 3.11 + cuda 12.8 for compute
+python = use_extension("@rules_python//python:extensions.bzl", "python")
+python.toolchain(
+    python_version = "3.11",
+    is_default = True,
+)
+
+
+pip = use_extension("@rules_python//python/extensions:pip.bzl", "pip")
+
+# 1. Compute Repo (Torch + CUDA)
+pip.parse(
+    hub_name = "pip_compute",
+    python_version = "3.11",
+    requirements_lock = "//:third_party/python/requirements.lock.cu128.txt",
+    
+    # FIX: Move index URLs into extra_pip_args
+    # Increase timeout because CUDA wheels are huge (2GB+) and often fail on default timeout
+    extra_pip_args = [
+        "--index-url=https://pypi.tuna.tsinghua.edu.cn/simple",
+        "--extra-index-url=https://download.pytorch.org/whl/cu128",
+        "--extra-index-url=https://pypi.org/simple",
+        "--default-timeout=1200", 
+    ],
+)
+
+# 2. Sim Repo (Standard)
+pip.parse(
+    hub_name = "pip_sim",
+    python_version = "3.11",
+    requirements_lock = "//:third_party/python/requirements.lock.sim.txt",
+    extra_pip_args = [
+        "--index-url=https://pypi.tuna.tsinghua.edu.cn/simple",
+        "--extra-index-url=https://pypi.org/simple",
+    ],
+)
+
+use_repo(pip, "pip_compute", "pip_sim")

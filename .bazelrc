@@ -1,0 +1,10 @@
+# Common settings
+common --enable_bzlmod
+common --symlink_prefix=build/
+common --distdir=third_party/dists
+# Test output
+test --test_output=errors
+common --repository_cache=.cache/bazel/repo
+
+build --disk_cache=~/.bazel_cache
+build --experimental_disk_cache_gc_idle_delay=5m

@@ -1,0 +1,62 @@
+[project]
+name = "muluop"
+version = "1.0.0"
+requires-python = ">=3.11"
+dependencies = [
+    # torch moved to extras so we can choose cpu vs cuda index
+    "eclipse-ecal>=6.0.1",
+    
+    "numpy",
+    "hydra-core",
+]
+
+[project.optional-dependencies]
+# Choose one of these:
+cpu = [
+    "torch==2.9.1",
+]
+cu128 = [
+    "torch==2.9.1",
+]
+
+sim = [
+    "mujoco",
+]
+compute = [
+    "scipy",
+    "opencv-python",
+    "opencv-contrib-python",
+    "matplotlib",
+    "huggingface_hub",
+    "open3d",
+]
+dev = [
+    "pre-commit>=4.3.0",
+    "pre-commit-hooks>=6.0.0",
+    "mypy>=1.0.0",
+    "ruff>=0.1.0",
+    "pytest>=7.0.0",
+    "jupyter>=1.1.1",
+]
+
+[[tool.uv.index]]
+name = "pytorch-cu128"
+url = "https://download.pytorch.org/whl/cu128"
+explicit = true
+
+[tool.uv.sources]
+torch = { index = "pytorch-cu128" }
+triton = { index = "pytorch-cu128" } # Try forcing Triton to come from PyTorch too
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "N", "W", "UP"]
+
+[tool.mypy]
+python_version = "3.11"
+warn_return_any = true
+warn_unused_configs = true
+ignore_missing_imports = true

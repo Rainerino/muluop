@@ -1,0 +1,42 @@
+load("@aspect_rules_py//py:defs.bzl", "py_binary", "py_library", "py_test")
+load("@pip_sim//:requirements.bzl", sim_requirement = "requirement")
+load("@pip_compute//:requirements.bzl", compute_requirement = "requirement")
+py_library(
+    name = "lib",
+    srcs = ["lib.py"],
+    visibility = ["//visibility:public"],
+)
+
+py_binary(
+    name = "torch_test",
+    srcs = ["torch_test.py"],
+    deps = [
+        compute_requirement("torch"),
+        compute_requirement("eclipse-ecal"),   # note the PyPI name
+        ":lib",
+    ],
+    python_version = "3.11",
+    visibility = ["//visibility:public"],
+)
+
+py_binary(
+    name = "sim_test",
+    srcs = ["sim_test.py"],
+    deps = [
+        sim_requirement("mujoco"),   # note the PyPI name
+        compute_requirement("eclipse-ecal"),
+        ":lib",
+    ],
+    python_version = "3.11",
+    visibility = ["//visibility:public"],
+)
+
+py_test(
+    name = "lib_test",
+    srcs = ["lib_test.py"],
+    deps = [
+        compute_requirement("pytest"),
+        ":lib"
+    ],
+    size = "small",
+)

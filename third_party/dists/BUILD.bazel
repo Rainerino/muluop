@@ -1,0 +1,3 @@
+exports_files([
+    "uv-x86_64-unknown-linux-gnu.tar.gz",
+])

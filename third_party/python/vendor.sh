@@ -15,7 +15,7 @@ uv venv .venv --python 3.11.13 --seed --clear
 source .venv/bin/activate
 
 # CRITICAL: uv venvs are empty. We must install pip to use 'pip download'
-uv pip install pip
+uv pip install pip tqdm
 
 echo "🐍 Verifying environment..."
 

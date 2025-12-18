@@ -7,7 +7,6 @@ def pytest_suite(name, srcs, deps = [], **kwargs):
     """
     test_targets = []
 
-    print(srcs)
     for src in srcs:
         # Generate a clean name: "python/test_dummy.py" -> "test_dummy"
         test_name = src.split("/")[-1].replace(".py", "")
@@ -23,7 +22,6 @@ def pytest_suite(name, srcs, deps = [], **kwargs):
         )
         test_targets.append(":" + test_name)
 
-    print(test_targets)
     # Define the suite that groups them all together
     native.test_suite(
         name = name,

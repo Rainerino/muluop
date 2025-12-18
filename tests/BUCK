@@ -23,7 +23,7 @@ TEST_DEPS = [
 
 # This generates :test_dummy, :test_imports, etc., AND :all_tests
 pytest_suite(
-    name = "all_tests",
+    name = "all",
     srcs = glob(["python/test_*.py"]),
     deps = TEST_DEPS,
 )

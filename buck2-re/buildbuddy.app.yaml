@@ -4,6 +4,7 @@ app:
 
 remote_execution:
   enable_remote_exec: true
+  default_pool_name: my-default-pool
   redis_target: "redis:6379"
 
 cache:

@@ -23,8 +23,9 @@
     target:toolchains//...->prelude//platforms:default
 
 [build]
-execution_platforms = prelude//platforms:linux-re
-execution_platforms = prelude//platforms:default
+; execution_platforms = prelude//platforms:linux-re
+; execution_platforms = prelude//platforms:default
+execution_platforms = //platforms/execution:re
 
 
 [buck2_re_client]

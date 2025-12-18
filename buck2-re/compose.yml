@@ -25,7 +25,6 @@ services:
     image: gcr.io/flame-public/buildbuddy-executor-enterprise:latest
     container_name: buildbuddy-executor
     privileged: true
-
     volumes:
       - ./buildbuddy.executor.yaml:/config.yaml:ro,Z
       - ./executor-data:/data,Z

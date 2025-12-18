@@ -1,8 +1,12 @@
 executor:
   app_target: "grpc://127.0.0.1:1985"   # point at your app :contentReference[oaicite:1]{index=1}
+  local_cache_directory: /cache
+  pool_name: "default"     # must match “Pool” exec_property
+  os: "linux"
+  arch: "amd64"
 
   # Avoid pulling the default GCR warmup image :contentReference[oaicite:2]{index=2}
-  default_image: "docker.io/library/ubuntu:22.04"
+  default_image: "docker.m.daocloud.io/library/ubuntu:22.04"
 
   # Pick one isolation path:
 

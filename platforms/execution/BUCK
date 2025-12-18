@@ -1,0 +1,25 @@
+load(":defs.bzl", "execution_platform", "host_configuration")
+
+# Local-only execution platform
+execution_platform(
+    name = "local",
+    # platform = "//platforms:linux-x86_64",  # use whatever target platform label you already have
+    cpu_configuration = host_configuration.cpu,
+    os_configuration = host_configuration.os,
+    use_windows_path_separators = False,
+    # local_enabled = True,
+    # remote_enabled = False,
+)
+
+# Remote execution platform (can be remote-only or hybrid; see below)
+execution_platform(
+    name = "re",
+    # platform = "//platforms:linux-x86_64",
+    cpu_configuration = host_configuration.cpu,
+    os_configuration = host_configuration.os,
+    use_windows_path_separators = False,
+    # local_enabled = False,   # set False if you want "remote-only platform"
+    # remote_enabled = True,
+    # use_limited_hybrid = False,
+    
+)

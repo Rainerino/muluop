@@ -16,5 +16,3 @@ executor:
   podman:
     warmup_default_images: true             # :contentReference[oaicite:5]{index=5}
 
-  # B) If you want Docker-provider via mounted socket, keep enable_podman=false
-  # and ensure executor.docker_socket is set + mounted. :contentReference[oaicite:6]{index=6}

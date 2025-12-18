@@ -23,17 +23,22 @@
     target:toolchains//...->prelude//platforms:default
 
 [build]
-; execution_platforms = prelude//platforms:linux-re
-; execution_platforms = prelude//platforms:default
+# default (local)
+execution_platforms = //platforms/execution:local
+
+[build#re]
 execution_platforms = //platforms/execution:re
+
+[build#local]
+execution_platforms = //platforms/execution:local
 
 
 [buck2_re_client]
 # Point all addresses to your server's IP and port
 # BuildBuddy uses port 1985 for gRPC (configured in compose.yml)
-engine_address       = grpc://127.0.0.1:1985
-action_cache_address = grpc://127.0.0.1:1985
-cas_address          = grpc://127.0.0.1:1985
+engine_address       = grpc://100.125.18.40:1985
+action_cache_address = grpc://100.125.18.40:1985
+cas_address          = grpc://100.125.18.40:1985
 
 
 # Plaintext connection (no SSL/TLS)

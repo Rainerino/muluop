@@ -17,8 +17,8 @@ def _execution_platform_impl(ctx: AnalysisContext) -> list[Provider]:
         label = name,
         configuration = cfg,
         executor_config = CommandExecutorConfig(
-            local_enabled = False,
-            remote_enabled = True,
+            local_enabled = ctx.attrs.local_enabled,
+            remote_enabled = ctx.attrs.remote_enabled,
             remote_execution_properties = {
                 "OSFamily": "linux",
                 "Arch": "x86_64",
@@ -43,6 +43,8 @@ execution_platform = rule(
     attrs = {
         "cpu_configuration": attrs.dep(providers = [ConfigurationInfo]),
         "os_configuration": attrs.dep(providers = [ConfigurationInfo]),
+        "local_enabled": attrs.bool(),
+        "remote_enabled": attrs.bool(),
         "use_windows_path_separators": attrs.bool(),
     },
 )

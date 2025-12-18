@@ -7,8 +7,8 @@ execution_platform(
     cpu_configuration = host_configuration.cpu,
     os_configuration = host_configuration.os,
     use_windows_path_separators = False,
-    # local_enabled = True,
-    # remote_enabled = False,
+    local_enabled = True,
+    remote_enabled = False,
 )
 
 # Remote execution platform (can be remote-only or hybrid; see below)
@@ -18,8 +18,8 @@ execution_platform(
     cpu_configuration = host_configuration.cpu,
     os_configuration = host_configuration.os,
     use_windows_path_separators = False,
-    # local_enabled = False,   # set False if you want "remote-only platform"
-    # remote_enabled = True,
+    local_enabled = False,   # set False if you want "remote-only platform"
+    remote_enabled = True,
     # use_limited_hybrid = False,
     
 )

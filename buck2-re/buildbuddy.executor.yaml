@@ -1,6 +1,16 @@
 executor:
-  app_target: "grpc://buildbuddy-app:1985"
-  root_directory: "/data/remotebuilds"
-  local_cache_directory: "/data/filecache"
-  local_cache_size_bytes: 1000000000
-  docker_socket: /var/run/docker.sock
+  app_target: "grpc://buildbuddy-app:1985"   # point at your app :contentReference[oaicite:1]{index=1}
+
+  # Avoid pulling the default GCR warmup image :contentReference[oaicite:2]{index=2}
+  default_image: "docker.io/library/ubuntu:20.04"
+
+  # Pick one isolation path:
+
+  # A) If you want Podman-native execution:
+  enable_podman: true                        # :contentReference[oaicite:3]{index=3}
+  default_isolation_type: "podman"           # :contentReference[oaicite:4]{index=4}
+  podman:
+    warmup_default_images: true             # :contentReference[oaicite:5]{index=5}
+
+  # B) If you want Docker-provider via mounted socket, keep enable_podman=false
+  # and ensure executor.docker_socket is set + mounted. :contentReference[oaicite:6]{index=6}

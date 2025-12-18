@@ -29,6 +29,7 @@ services:
       - ./buildbuddy.executor.yaml:/config.yaml:ro,Z
       - ./executor-data:/data,Z
       - /run/user/1000/podman/podman.sock:/var/run/docker.sock:rw,z
+      - ./executor-docker-config.json:/root/.docker/config.json:ro,Z
     depends_on:
       - buildbuddy-app
     restart: unless-stopped

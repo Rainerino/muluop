@@ -14,7 +14,6 @@ torch==2.9.1+cu130
 
 
 # [compute]
-opencv-python==4.12.0.88
 opencv-contrib-python==4.12.0.88
 matplotlib
 huggingface_hub
@@ -27,7 +26,9 @@ ruff>=0.1.0
 pylint>=3.0.0
 pytest>=7.0.0
 jupyter>=1.1.1
+ipykernel
 referencing==0.30.2
 virtualenv
 toml
 pyzmq
+bleach==5.0.1

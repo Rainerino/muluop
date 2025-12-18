@@ -1,0 +1,7 @@
+{
+  "argv": ["buck2", "run", "//tools:buck_ipykernel", "--", "-f", "{connection_file}"],
+  "display_name": "Buck2 (repo deps)",
+  "defaultKernelName": "buck2",
+  "language": "python"
+}
+

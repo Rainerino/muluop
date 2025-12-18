@@ -23,6 +23,7 @@
     target:toolchains//...->prelude//platforms:default
 
 [build]
+execution_platforms = root//platforms:remote
 execution_platforms = prelude//platforms:default
 
 

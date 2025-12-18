@@ -4,3 +4,6 @@ node_modules
 _pycache_/
 *.pyc
 .ipynb_checkpoints/
+
+buck2-re/executor-data/
+buck2-re/redis-data/

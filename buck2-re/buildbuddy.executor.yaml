@@ -1,0 +1,6 @@
+executor:
+  app_target: "grpc://buildbuddy-app:1985"
+  root_directory: "/data/remotebuilds"
+  local_cache_directory: "/data/filecache"
+  local_cache_size_bytes: 1000000000
+  docker_socket: /var/run/docker.sock

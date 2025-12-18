@@ -1,33 +1,34 @@
-version: '3'
+version: "3"
 services:
-  # 1. BuildBuddy Server
+  redis:
+    image: docker.io/library/redis:7-alpine
+    container_name: buildbuddy-redis
+    command: ["redis-server", "--appendonly", "yes"]
+    volumes:
+      - ./redis-data:/data:Z
+    restart: unless-stopped
+
   buildbuddy-app:
-    image: gcr.io/flame-public/buildbuddy-app-onprem:latest
+    image: gcr.io/flame-public/buildbuddy-app-enterprise:latest
     container_name: buildbuddy-app
     ports:
       - "1985:1985"
       - "8080:8080"
-    environment:
-      - GRPC_PORT=1985
+    volumes:
+      - ./buildbuddy.app.yaml:/config.yaml:ro,Z
+      - ./app-data:/data:Z
     restart: unless-stopped
+    depends_on:
+      - redis
 
-  # 2. BuildBuddy Executor
   buildbuddy-executor:
     image: gcr.io/flame-public/buildbuddy-executor-enterprise:latest
     container_name: buildbuddy-executor
-    # Security options are critical for Podman to allow sibling containers
-    security_opt:
-      - label=disable
-    privileged: true 
-    command: 
-      - "/app/buildbuddy_executor"
-      - "--app_target=buildbuddy-app:1985"
-      # We tell the executor to look at the default Docker path inside the container
-      - "--executor.docker_socket=/var/run/docker.sock"
+    privileged: true
     volumes:
-      # THE TRICK: Map Host Podman Socket -> Container Docker Socket
-      # Replace 1000 with your actual UID if needed (run `id -u` to check)
-      - /run/user/1000/podman/podman.sock:/var/run/docker.sock
+      - ./buildbuddy.executor.yaml:/config.yaml:ro,Z
+      - ./executor-data:/data,Z
+      - /run/user/1000/podman/podman.sock:/var/run/docker.sock:rw,z
     depends_on:
       - buildbuddy-app
     restart: unless-stopped

@@ -23,6 +23,7 @@ def generate():
     
     print(f"⚙️  Scanning directory: {wheel_dir}")
 
+    all_target_names = []
     # 2. Find wheels
     whl_files = glob.glob(os.path.join(wheel_dir, "*.whl"))
     rules = []
@@ -35,6 +36,7 @@ def generate():
         dist_name = filename.split("-")[0]
         target_name = sanitize_name(dist_name)
         
+        all_target_names.append(f":{target_name}")
         # 3. Generate the rule
         # Note: binary_src just needs the filename because the BUCK file 
         # is being written to the SAME directory as the wheels.
@@ -44,6 +46,19 @@ prebuilt_python_library(
     binary_src = "{filename}",
     visibility = ["PUBLIC"],
 )""")
+
+# 5. Generate the "all_deps" Bundle Target
+    #    This is the specific part you asked for!
+    bundle_rule = f"""
+python_library(
+    name = "all_deps",
+    deps = [
+{chr(10).join(f'        "{name}",' for name in all_target_names)}
+    ],
+    visibility = ["PUBLIC"],
+)
+"""
+    rules.append(bundle_rule)
 
     # 4. Write the BUCK file
     with open(output_file, "w") as f:

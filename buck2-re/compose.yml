@@ -11,6 +11,15 @@ services:
   buildbuddy-app:
     image: gcr.io/flame-public/buildbuddy-app-enterprise:latest
     container_name: buildbuddy-app
+    environment:
+      HTTP_PROXY: ""
+      HTTPS_PROXY: ""
+      ALL_PROXY: ""
+      NO_PROXY: ""
+      http_proxy: ""
+      https_proxy: ""
+      all_proxy: ""
+      no_proxy: ""
     ports:
       - "1985:1985"
       - "8080:8080"
@@ -25,6 +34,15 @@ services:
     image: gcr.io/flame-public/buildbuddy-executor-enterprise:latest
     container_name: buildbuddy-executor
     privileged: true
+    environment:
+      HTTP_PROXY: ""
+      HTTPS_PROXY: ""
+      ALL_PROXY: ""
+      NO_PROXY: ""
+      http_proxy: ""
+      https_proxy: ""
+      all_proxy: ""
+      no_proxy: ""
     volumes:
       - ./buildbuddy.executor.yaml:/config.yaml:ro,Z
       - ./executor-data:/data,Z

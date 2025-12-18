@@ -22,7 +22,7 @@ def _execution_platform_impl(ctx: AnalysisContext) -> list[Provider]:
             remote_execution_properties = {
                 "OSFamily": "linux",
                 "Arch": "x86_64",
-                "Pool": "my-default-pool",
+                "Pool": "default",
                 # IMPORTANT: use an image your executor can actually pull
                 "container-image": "docker://docker.io/library/ubuntu:22.04",
             },

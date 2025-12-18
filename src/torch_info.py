@@ -7,8 +7,8 @@ import ecal.nanobind_core as ecal_core
 import torch
 
 # Import High-level Publisher/Subscriber classes
-# Note: Depending on your specific Bazel build/version, these usually wrap the core.
-# If these specific imports fail, you may need to use ecal_core.Publisher directly.
+# Note: ecal.core is deprecated in favor of ecal.nanobind_core for core functions,
+# but high-level Publisher/Subscriber classes are still in ecal.core for now.
 from ecal.core.publisher import StringPublisher
 from ecal.core.subscriber import StringSubscriber
 

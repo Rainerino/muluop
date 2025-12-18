@@ -26,7 +26,7 @@ python_binary(
         "//third_party/python/wheels:typing_extensions",
         "//third_party/python/wheels:eclipse_ecal",
         "//third_party/python/wheels:protobuf",
-        "//third_party/python/wheels:eclipse_ecal",
+        "//third_party/python/wheels:numpy",
         "//third_party/python/wheels:nvidia_cudnn_cu13",
         "//third_party/python/wheels:nvidia_cusparselt_cu13",
         "//third_party/python/wheels:nvidia_nccl_cu13",

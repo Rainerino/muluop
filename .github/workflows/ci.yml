@@ -50,10 +50,10 @@ jobs:
         restore-keys: |
           ${{ runner.os }}-wheels-
     
-    - name: Vendor dependencies
+    - name: Build binaries
       run: |
-        mkdir -p third_party/python/wheels
-        buck2 run //third_party:update_deps
+        buck2 build //src:torch_info
+        buck2 build //src:sim
     
     - name: Run tests
       run: |

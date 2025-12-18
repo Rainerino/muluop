@@ -4,10 +4,20 @@ python_test(
     deps = [],
 )
 
+python_test(
+    name = "test_imports",
+    srcs = ["test_imports.py"],
+    deps = [
+        "//third_party/python/wheels:torch",
+        "//third_party/python/wheels:mujoco",
+    ],
+)
+
 test_suite(
     name = "all",
     tests = [
         ":test_dummy",
+        ":test_imports",
     ],
 )
 

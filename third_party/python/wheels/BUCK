@@ -170,6 +170,12 @@ prebuilt_python_library(
 )
 
 prebuilt_python_library(
+    name = "expecttest",
+    binary_src = "expecttest-0.3.0-py3-none-any.whl",
+    visibility = ["PUBLIC"],
+)
+
+prebuilt_python_library(
     name = "fastjsonschema",
     binary_src = "fastjsonschema-2.21.2-py3-none-any.whl",
     visibility = ["PUBLIC"],
@@ -1018,5 +1024,23 @@ prebuilt_python_library(
 prebuilt_python_library(
     name = "zipp",
     binary_src = "zipp-3.23.0-py3-none-any.whl",
+    visibility = ["PUBLIC"],
+)
+
+prebuilt_python_library(
+    name = "hypothesis",
+    binary_src = "hypothesis-6.148.7-py3-none-any.whl",
+    visibility = ["PUBLIC"],
+)
+
+prebuilt_python_library(
+    name = "sortedcontainers",
+    binary_src = "sortedcontainers-2.4.0-py2.py3-none-any.whl",
+    visibility = ["PUBLIC"],
+)
+
+prebuilt_python_library(
+    name = "toml",
+    binary_src = "toml-0.10.2-py2.py3-none-any.whl",
     visibility = ["PUBLIC"],
 )

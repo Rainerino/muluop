@@ -1,23 +1,29 @@
-python_test(
-    name = "test_dummy",
-    srcs = ["test_dummy.py"],
-    deps = [],
-)
+# tests/BUCK
+load(":defs.bzl", "pytest_suite")
 
-python_test(
-    name = "test_imports",
-    srcs = ["test_imports.py"],
-    deps = [
-        "//third_party/python/wheels:torch",
-        "//third_party/python/wheels:mujoco",
-    ],
-)
+# Define all your dependencies in one list
+TEST_DEPS = [
+    "//third_party/python/wheels:pytest",
+    "//third_party/python/wheels:pluggy",
+    "//third_party/python/wheels:pygments",
+    "//third_party/python/wheels:iniconfig",
+    "//third_party/python/wheels:torch",
+    "//third_party/python/wheels:typing_extensions",
+    "//third_party/python/wheels:eclipse_ecal",
+    "//third_party/python/wheels:protobuf",
+    "//third_party/python/wheels:numpy",
+    "//third_party/python/wheels:nvidia_cudnn_cu13",
+    "//third_party/python/wheels:nvidia_cusparselt_cu13",
+    "//third_party/python/wheels:nvidia_nccl_cu13",
+    "//third_party/python/wheels:nvidia_nvshmem_cu13",
+    "//third_party/python/wheels:absl_py",
+    "//third_party/python/wheels:mujoco",
+    "//third_party/python/wheels:glfw",
+]
 
-test_suite(
-    name = "all",
-    tests = [
-        ":test_dummy",
-        ":test_imports",
-    ],
+# This generates :test_dummy, :test_imports, etc., AND :all_tests
+pytest_suite(
+    name = "all_tests",
+    srcs = glob(["python/test_*.py"]),
+    deps = TEST_DEPS,
 )
-

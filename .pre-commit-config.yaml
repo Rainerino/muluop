@@ -1,33 +1,39 @@
 repos:
-  - repo: local
+  # 1. Basic Safety & Hygiene
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.5.0
     hooks:
-      # 1. Native Buck2 Linter
-      # This runs Buck2's internal linter on all Starlark files.
-      # It catches unused imports, undefined variables, and type errors.
-      - id: buck2-lint
-        name: Buck2 Starlark Lint
-        entry: buck2 starlark lint
-        language: system
-        types_or: [bazel, python] 
-        files: '.*\.bzl$|BUCK$|PACKAGE$'
-        pass_filenames: true
+      - id: trailing-whitespace
+      - id: end-of-file-fixer
+      - id: check-yaml
+      - id: check-toml
+      - id: check-added-large-files
+        args: ['--maxkb=2000'] # Prevent committing binaries > 2MB
+      - id: check-merge-conflict
+      - id: debug-statements   # Blocks 'import pdb' or 'breakpoint()'
 
-      # 2. Buildifier (Formatting)
-      # Buck2 generally relies on Buildifier for *formatting* (spacing/indentation).
-      # We run this BEFORE the linter.
-      - id: buildifier
-        name: Buildifier Format
-        entry: buck2 run //tools:buildifier -- -mode=fix
-        language: system
-        types_or: [bazel, python]
-        files: '.*\.bzl$|BUCK$|PACKAGE$'
-        pass_filenames: true
+  # 2. Formatting & Linting (Ruff)
+  # Ruff is extremely fast and replaces Black, Isort, and Flake8
+  - repo: https://github.com/astral-sh/ruff-pre-commit
+    rev: v0.3.0
+    hooks:
+      - id: ruff
+        args: [ --fix ]       # Auto-fix simple issues (imports, unused vars)
+      - id: ruff-format       # The formatter (replaces Black)
 
-      # 3. Buck2 Audit (Optional but recommended)
-      # This checks if your 'load()' statements are correct and efficient.
-      - id: buck2-audit
-        name: Buck2 Audit Includes
-        entry: buck2 audit includes
-        language: system
-        files: 'BUCK$'
-        pass_filenames: true
+  # 3. Static Type Checking (MyPy)
+  # Remove this block if you aren't using type hints
+  - repo: https://github.com/pre-commit/mirrors-mypy
+    rev: v1.8.0
+    hooks:
+      - id: mypy
+        # You often need to add types for your specific dependencies here
+        additional_dependencies: [types-requests, types-PyYAML]
+        args: ["--ignore-missing-imports"]
+
+  # 4. Security (Secrets Detection)
+  # Scans for API keys, tokens, and passwords
+  - repo: https://github.com/gitleaks/gitleaks
+    rev: v8.18.2
+    hooks:
+      - id: gitleaks

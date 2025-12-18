@@ -1,9 +1,24 @@
+# tools/BUCK
+
 python_binary(
-    name = "test",
-    main = "test.py",
+    name = "pre-commit",
+    # 1. The Entry Point
+    # This tells Buck2 to launch the "main" function inside the pre_commit module
+    main_module = "pre_commit.main",
+
+    # 2. Dependencies
+    # You must list pre-commit AND its transitive dependencies here.
+    # (pre-commit depends on: cfgv, identify, nodeenv, pyyaml, toml, virtualenv)
     deps = [
-        # Reference the generated targets from your vendor script.
-        # Format: //path/to/wheels:sanitized_name
-        # If you had numpy, it would look like this:
-    ]
+        "//third_party/python/wheels:pre_commit",
+        "//third_party/python/wheels:cfgv",
+        "//third_party/python/wheels:identify",
+        "//third_party/python/wheels:nodeenv",
+        "//third_party/python/wheels:pyyaml",
+        "//third_party/python/wheels:toml",
+        "//third_party/python/wheels:virtualenv",
+    ],
+    # 3. Visibility
+    # Allow this to be run from the root
+    visibility = ["PUBLIC"],
 )

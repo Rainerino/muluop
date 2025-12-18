@@ -1,6 +1,0 @@
-{
-  "dependencies": {
-    "@vscode/vsce": "^3.7.1",
-    "vscode-languageclient": "^9.0.1"
-  }
-}

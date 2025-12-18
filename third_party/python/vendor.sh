@@ -58,20 +58,16 @@ uv pip compile third_party/python/requirements.in \
   --extra-index-url=https://pypi.org/simple  \
   --extra-index-url=https://download.pytorch.org/whl/cu130
 
-echo "🧹 2. Cleaning old wheels..."
-rm -rf "$WHEEL_DIR"
-mkdir -p "$WHEEL_DIR"
+# echo "🧹 2. Cleaning old wheels..."
+# rm -rf "$WHEEL_DIR"
+# mkdir -p "$WHEEL_DIR"
 
 echo "⬇️  3. Downloading wheels..."
 # We use standard pip here because 'uv' doesn't support 'download' yet.
 # Since we are using a strict requirements.txt with hashes, we use standard
 # pip download -r instead of xargs to ensure hashes are verified correctly.
 
-uv run pip download \
-    -r third_party/python/requirements.txt \
-    --dest "$WHEEL_DIR" \
-    --no-deps \
-    --require-hashes
+uv run python third_party/python/mp_download.py --target-dir "$WHEEL_DIR"
 
 echo "⚙️  4. Generating BUCK file..."
 # FIX: Passed the WHEEL_DIR variable correctly

@@ -5,12 +5,15 @@ python_binary(
         # Reference the generated targets from your vendor script.
         # Format: //path/to/wheels:sanitized_name
         # If you had numpy, it would look like this:
+        "//third_party/python/wheels:absl_py",
         "//third_party/python/wheels:mujoco",
         "//third_party/python/wheels:typing_extensions",
         "//third_party/python/wheels:glfw",
         "//third_party/python/wheels:numpy",
     ]
 )
+
+
 
 python_binary(
     name = "torch_info",
@@ -19,10 +22,14 @@ python_binary(
         # Reference the generated targets from your vendor script.
         # Format: //path/to/wheels:sanitized_name
         # If you had numpy, it would look like this:
-        "//third_party/python/torch:torch",
+        "//third_party/python/wheels:torch",
         "//third_party/python/wheels:typing_extensions",
         "//third_party/python/wheels:eclipse_ecal",
-        "//third_party/cuda:cudart",
-        "//third_party/cuda:cublas",
+        "//third_party/python/wheels:protobuf",
+        "//third_party/python/wheels:eclipse_ecal",
+        "//third_party/python/wheels:nvidia_cudnn_cu13",
+        "//third_party/python/wheels:nvidia_cusparselt_cu13",
+        "//third_party/python/wheels:nvidia_nccl_cu13",
+        "//third_party/python/wheels:nvidia_nvshmem_cu13",
     ],
 )

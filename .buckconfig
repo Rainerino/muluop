@@ -25,7 +25,5 @@
 [build]
   execution_platforms = prelude//platforms:default
 
-[repositories]
-  # This points the name 'prelude' to the folder 'prelude' in your repo
-  prelude = prelude
-  toolchains = toolchains
+[python]
+  interpreter = /usr/bin/python3.11

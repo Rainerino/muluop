@@ -33,6 +33,9 @@ def main():
         
         # 4. The Simulation Loop
         while viewer.is_running():
+
+            if time.time() - start_time > 3:
+              break
             step_start = time.time()
 
             # Advance the physics state by one step

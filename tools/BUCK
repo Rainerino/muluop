@@ -1,0 +1,9 @@
+python_binary(
+    name = "test",
+    main = "test.py",
+    deps = [
+        # Reference the generated targets from your vendor script.
+        # Format: //path/to/wheels:sanitized_name
+        # If you had numpy, it would look like this:
+    ]
+)

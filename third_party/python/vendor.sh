@@ -59,8 +59,8 @@ uv pip compile third_party/python/requirements.in \
   --extra-index-url=https://download.pytorch.org/whl/cu130
 
 # echo "🧹 2. Cleaning old wheels..."
-# rm -rf "$WHEEL_DIR"
-# mkdir -p "$WHEEL_DIR"
+rm -rf "$WHEEL_DIR"
+mkdir -p "$WHEEL_DIR"
 
 echo "⬇️  3. Downloading wheels..."
 # We use standard pip here because 'uv' doesn't support 'download' yet.

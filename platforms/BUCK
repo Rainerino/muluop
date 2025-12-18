@@ -1,0 +1,17 @@
+load("@prelude//platforms:defs.bzl", "execution_platform", "host_configuration")
+
+execution_platform(
+    name = "self_hosted",
+    cpu_configuration = host_configuration.cpu,
+    os_configuration = host_configuration.os,
+    use_windows_path_separators = host_info().os.is_windows,
+    visibility = ["PUBLIC"],
+)
+
+execution_platform(
+    name = "remote",
+    cpu_configuration = host_configuration.cpu,
+    os_configuration = host_configuration.os,
+    use_windows_path_separators = host_info().os.is_windows,
+    visibility = ["PUBLIC"],
+)

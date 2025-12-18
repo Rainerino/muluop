@@ -2,98 +2,8 @@
 load("@prelude//rules.bzl", "prebuilt_python_library")
 
 prebuilt_python_library(
-    name = "absl_py",
-    binary_src = "absl_py-2.3.1-py3-none-any.whl",
-    visibility = ["PUBLIC"],
-)
-
-prebuilt_python_library(
-    name = "anyio",
-    binary_src = "anyio-4.12.0-py3-none-any.whl",
-    visibility = ["PUBLIC"],
-)
-
-prebuilt_python_library(
     name = "argon2_cffi",
     binary_src = "argon2_cffi-25.1.0-py3-none-any.whl",
-    visibility = ["PUBLIC"],
-)
-
-prebuilt_python_library(
-    name = "argon2_cffi_bindings",
-    binary_src = "argon2_cffi_bindings-25.1.0-cp39-abi3-manylinux_2_26_x86_64.manylinux_2_28_x86_64.whl",
-    visibility = ["PUBLIC"],
-)
-
-prebuilt_python_library(
-    name = "arrow",
-    binary_src = "arrow-1.4.0-py3-none-any.whl",
-    visibility = ["PUBLIC"],
-)
-
-prebuilt_python_library(
-    name = "astroid",
-    binary_src = "astroid-4.0.2-py3-none-any.whl",
-    visibility = ["PUBLIC"],
-)
-
-prebuilt_python_library(
-    name = "asttokens",
-    binary_src = "asttokens-3.0.1-py3-none-any.whl",
-    visibility = ["PUBLIC"],
-)
-
-prebuilt_python_library(
-    name = "async_lru",
-    binary_src = "async_lru-2.0.5-py3-none-any.whl",
-    visibility = ["PUBLIC"],
-)
-
-prebuilt_python_library(
-    name = "attrs",
-    binary_src = "attrs-25.4.0-py3-none-any.whl",
-    visibility = ["PUBLIC"],
-)
-
-prebuilt_python_library(
-    name = "babel",
-    binary_src = "babel-2.17.0-py3-none-any.whl",
-    visibility = ["PUBLIC"],
-)
-
-prebuilt_python_library(
-    name = "beautifulsoup4",
-    binary_src = "beautifulsoup4-4.14.3-py3-none-any.whl",
-    visibility = ["PUBLIC"],
-)
-
-prebuilt_python_library(
-    name = "bleach",
-    binary_src = "bleach-6.3.0-py3-none-any.whl",
-    visibility = ["PUBLIC"],
-)
-
-prebuilt_python_library(
-    name = "certifi",
-    binary_src = "certifi-2025.11.12-py3-none-any.whl",
-    visibility = ["PUBLIC"],
-)
-
-prebuilt_python_library(
-    name = "cffi",
-    binary_src = "cffi-2.0.0-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.whl",
-    visibility = ["PUBLIC"],
-)
-
-prebuilt_python_library(
-    name = "cfgv",
-    binary_src = "cfgv-3.5.0-py2.py3-none-any.whl",
-    visibility = ["PUBLIC"],
-)
-
-prebuilt_python_library(
-    name = "charset_normalizer",
-    binary_src = "charset_normalizer-3.4.4-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl",
     visibility = ["PUBLIC"],
 )
 
@@ -104,14 +14,26 @@ prebuilt_python_library(
 )
 
 prebuilt_python_library(
+    name = "cfgv",
+    binary_src = "cfgv-3.5.0-py2.py3-none-any.whl",
+    visibility = ["PUBLIC"],
+)
+
+prebuilt_python_library(
+    name = "argon2_cffi_bindings",
+    binary_src = "argon2_cffi_bindings-25.1.0-cp39-abi3-manylinux_2_26_x86_64.manylinux_2_28_x86_64.whl",
+    visibility = ["PUBLIC"],
+)
+
+prebuilt_python_library(
     name = "comm",
     binary_src = "comm-0.2.3-py3-none-any.whl",
     visibility = ["PUBLIC"],
 )
 
 prebuilt_python_library(
-    name = "contourpy",
-    binary_src = "contourpy-1.3.3-cp311-cp311-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl",
+    name = "attrs",
+    binary_src = "attrs-25.4.0-py3-none-any.whl",
     visibility = ["PUBLIC"],
 )
 
@@ -122,14 +44,14 @@ prebuilt_python_library(
 )
 
 prebuilt_python_library(
-    name = "debugpy",
-    binary_src = "debugpy-1.8.19-cp311-cp311-manylinux_2_34_x86_64.whl",
+    name = "certifi",
+    binary_src = "certifi-2025.11.12-py3-none-any.whl",
     visibility = ["PUBLIC"],
 )
 
 prebuilt_python_library(
-    name = "decorator",
-    binary_src = "decorator-5.2.1-py3-none-any.whl",
+    name = "anyio",
+    binary_src = "anyio-4.12.0-py3-none-any.whl",
     visibility = ["PUBLIC"],
 )
 
@@ -140,56 +62,68 @@ prebuilt_python_library(
 )
 
 prebuilt_python_library(
-    name = "dill",
-    binary_src = "dill-0.4.0-py3-none-any.whl",
+    name = "absl_py",
+    binary_src = "absl_py-2.3.1-py3-none-any.whl",
     visibility = ["PUBLIC"],
 )
 
 prebuilt_python_library(
-    name = "distlib",
-    binary_src = "distlib-0.4.0-py2.py3-none-any.whl",
+    name = "charset_normalizer",
+    binary_src = "charset_normalizer-3.4.4-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl",
     visibility = ["PUBLIC"],
 )
 
 prebuilt_python_library(
-    name = "eclipse_ecal",
-    binary_src = "eclipse_ecal-6.0.1-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl",
+    name = "async_lru",
+    binary_src = "async_lru-2.0.5-py3-none-any.whl",
     visibility = ["PUBLIC"],
 )
 
 prebuilt_python_library(
-    name = "etils",
-    binary_src = "etils-1.13.0-py3-none-any.whl",
+    name = "arrow",
+    binary_src = "arrow-1.4.0-py3-none-any.whl",
     visibility = ["PUBLIC"],
 )
 
 prebuilt_python_library(
-    name = "executing",
-    binary_src = "executing-2.2.1-py2.py3-none-any.whl",
+    name = "decorator",
+    binary_src = "decorator-5.2.1-py3-none-any.whl",
     visibility = ["PUBLIC"],
 )
 
 prebuilt_python_library(
-    name = "expecttest",
-    binary_src = "expecttest-0.3.0-py3-none-any.whl",
+    name = "astroid",
+    binary_src = "astroid-4.0.2-py3-none-any.whl",
     visibility = ["PUBLIC"],
 )
 
 prebuilt_python_library(
-    name = "fastjsonschema",
-    binary_src = "fastjsonschema-2.21.2-py3-none-any.whl",
+    name = "babel",
+    binary_src = "babel-2.17.0-py3-none-any.whl",
     visibility = ["PUBLIC"],
 )
 
 prebuilt_python_library(
-    name = "filelock",
-    binary_src = "filelock-3.20.1-py3-none-any.whl",
+    name = "bleach",
+    binary_src = "bleach-6.3.0-py3-none-any.whl",
     visibility = ["PUBLIC"],
 )
 
 prebuilt_python_library(
-    name = "fonttools",
-    binary_src = "fonttools-4.61.1-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.whl",
+    name = "debugpy",
+    binary_src = "debugpy-1.8.19-cp311-cp311-manylinux_2_34_x86_64.whl",
+    visibility = ["PUBLIC"],
+)
+
+prebuilt_python_library(
+    name = "asttokens",
+    binary_src = "asttokens-3.0.1-py3-none-any.whl",
+    visibility = ["PUBLIC"],
+)
+
+prebuilt_python_library(
+    name = "contourpy",
+    binary_src = "contourpy-1.3.3-cp311-cp311-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl",
     visibility = ["PUBLIC"],
 )
 
@@ -200,20 +134,26 @@ prebuilt_python_library(
 )
 
 prebuilt_python_library(
-    name = "fsspec",
-    binary_src = "fsspec-2025.12.0-py3-none-any.whl",
-    visibility = ["PUBLIC"],
-)
-
-prebuilt_python_library(
     name = "glfw",
     binary_src = "glfw-2.10.0-py2.py27.py3.py30.py31.py32.py33.py34.py35.py36.py37.py38.p39.p310.p311.p312.p313-none-manylinux_2_28_x86_64.whl",
     visibility = ["PUBLIC"],
 )
 
 prebuilt_python_library(
-    name = "h11",
-    binary_src = "h11-0.16.0-py3-none-any.whl",
+    name = "fsspec",
+    binary_src = "fsspec-2025.12.0-py3-none-any.whl",
+    visibility = ["PUBLIC"],
+)
+
+prebuilt_python_library(
+    name = "beautifulsoup4",
+    binary_src = "beautifulsoup4-4.14.3-py3-none-any.whl",
+    visibility = ["PUBLIC"],
+)
+
+prebuilt_python_library(
+    name = "eclipse_ecal",
+    binary_src = "eclipse_ecal-6.0.1-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl",
     visibility = ["PUBLIC"],
 )
 
@@ -224,26 +164,26 @@ prebuilt_python_library(
 )
 
 prebuilt_python_library(
-    name = "httpcore",
-    binary_src = "httpcore-1.0.9-py3-none-any.whl",
+    name = "dill",
+    binary_src = "dill-0.4.0-py3-none-any.whl",
     visibility = ["PUBLIC"],
 )
 
 prebuilt_python_library(
-    name = "httpx",
-    binary_src = "httpx-0.28.1-py3-none-any.whl",
+    name = "filelock",
+    binary_src = "filelock-3.20.1-py3-none-any.whl",
     visibility = ["PUBLIC"],
 )
 
 prebuilt_python_library(
-    name = "huggingface_hub",
-    binary_src = "huggingface_hub-1.2.3-py3-none-any.whl",
+    name = "h11",
+    binary_src = "h11-0.16.0-py3-none-any.whl",
     visibility = ["PUBLIC"],
 )
 
 prebuilt_python_library(
-    name = "hydra_core",
-    binary_src = "hydra_core-1.3.2-py3-none-any.whl",
+    name = "distlib",
+    binary_src = "distlib-0.4.0-py2.py3-none-any.whl",
     visibility = ["PUBLIC"],
 )
 
@@ -254,8 +194,14 @@ prebuilt_python_library(
 )
 
 prebuilt_python_library(
-    name = "idna",
-    binary_src = "idna-3.11-py3-none-any.whl",
+    name = "hydra_core",
+    binary_src = "hydra_core-1.3.2-py3-none-any.whl",
+    visibility = ["PUBLIC"],
+)
+
+prebuilt_python_library(
+    name = "cffi",
+    binary_src = "cffi-2.0.0-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.whl",
     visibility = ["PUBLIC"],
 )
 
@@ -266,14 +212,50 @@ prebuilt_python_library(
 )
 
 prebuilt_python_library(
+    name = "fonttools",
+    binary_src = "fonttools-4.61.1-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.whl",
+    visibility = ["PUBLIC"],
+)
+
+prebuilt_python_library(
+    name = "executing",
+    binary_src = "executing-2.2.1-py2.py3-none-any.whl",
+    visibility = ["PUBLIC"],
+)
+
+prebuilt_python_library(
+    name = "fastjsonschema",
+    binary_src = "fastjsonschema-2.21.2-py3-none-any.whl",
+    visibility = ["PUBLIC"],
+)
+
+prebuilt_python_library(
+    name = "idna",
+    binary_src = "idna-3.11-py3-none-any.whl",
+    visibility = ["PUBLIC"],
+)
+
+prebuilt_python_library(
     name = "iniconfig",
     binary_src = "iniconfig-2.3.0-py3-none-any.whl",
     visibility = ["PUBLIC"],
 )
 
 prebuilt_python_library(
-    name = "ipykernel",
-    binary_src = "ipykernel-7.1.0-py3-none-any.whl",
+    name = "etils",
+    binary_src = "etils-1.13.0-py3-none-any.whl",
+    visibility = ["PUBLIC"],
+)
+
+prebuilt_python_library(
+    name = "huggingface_hub",
+    binary_src = "huggingface_hub-1.2.3-py3-none-any.whl",
+    visibility = ["PUBLIC"],
+)
+
+prebuilt_python_library(
+    name = "httpcore",
+    binary_src = "httpcore-1.0.9-py3-none-any.whl",
     visibility = ["PUBLIC"],
 )
 
@@ -284,20 +266,8 @@ prebuilt_python_library(
 )
 
 prebuilt_python_library(
-    name = "ipython_pygments_lexers",
-    binary_src = "ipython_pygments_lexers-1.1.1-py3-none-any.whl",
-    visibility = ["PUBLIC"],
-)
-
-prebuilt_python_library(
-    name = "ipywidgets",
-    binary_src = "ipywidgets-8.1.8-py3-none-any.whl",
-    visibility = ["PUBLIC"],
-)
-
-prebuilt_python_library(
-    name = "isoduration",
-    binary_src = "isoduration-20.11.0-py3-none-any.whl",
+    name = "httpx",
+    binary_src = "httpx-0.28.1-py3-none-any.whl",
     visibility = ["PUBLIC"],
 )
 
@@ -308,14 +278,14 @@ prebuilt_python_library(
 )
 
 prebuilt_python_library(
-    name = "jedi",
-    binary_src = "jedi-0.19.2-py2.py3-none-any.whl",
+    name = "isoduration",
+    binary_src = "isoduration-20.11.0-py3-none-any.whl",
     visibility = ["PUBLIC"],
 )
 
 prebuilt_python_library(
-    name = "jinja2",
-    binary_src = "jinja2-3.1.6-py3-none-any.whl",
+    name = "ipywidgets",
+    binary_src = "ipywidgets-8.1.8-py3-none-any.whl",
     visibility = ["PUBLIC"],
 )
 
@@ -326,38 +296,26 @@ prebuilt_python_library(
 )
 
 prebuilt_python_library(
-    name = "jsonpointer",
-    binary_src = "jsonpointer-3.0.0-py2.py3-none-any.whl",
-    visibility = ["PUBLIC"],
-)
-
-prebuilt_python_library(
     name = "jsonschema",
     binary_src = "jsonschema-4.25.1-py3-none-any.whl",
     visibility = ["PUBLIC"],
 )
 
 prebuilt_python_library(
-    name = "jsonschema_specifications",
-    binary_src = "jsonschema_specifications-2025.9.1-py3-none-any.whl",
+    name = "jedi",
+    binary_src = "jedi-0.19.2-py2.py3-none-any.whl",
+    visibility = ["PUBLIC"],
+)
+
+prebuilt_python_library(
+    name = "jsonpointer",
+    binary_src = "jsonpointer-3.0.0-py2.py3-none-any.whl",
     visibility = ["PUBLIC"],
 )
 
 prebuilt_python_library(
     name = "jupyter",
     binary_src = "jupyter-1.1.1-py2.py3-none-any.whl",
-    visibility = ["PUBLIC"],
-)
-
-prebuilt_python_library(
-    name = "jupyter_client",
-    binary_src = "jupyter_client-8.7.0-py3-none-any.whl",
-    visibility = ["PUBLIC"],
-)
-
-prebuilt_python_library(
-    name = "jupyter_console",
-    binary_src = "jupyter_console-6.6.3-py3-none-any.whl",
     visibility = ["PUBLIC"],
 )
 
@@ -380,8 +338,20 @@ prebuilt_python_library(
 )
 
 prebuilt_python_library(
+    name = "jsonschema_specifications",
+    binary_src = "jsonschema_specifications-2023.7.1-py3-none-any.whl",
+    visibility = ["PUBLIC"],
+)
+
+prebuilt_python_library(
     name = "jupyter_server",
     binary_src = "jupyter_server-2.17.0-py3-none-any.whl",
+    visibility = ["PUBLIC"],
+)
+
+prebuilt_python_library(
+    name = "ipython_pygments_lexers",
+    binary_src = "ipython_pygments_lexers-1.1.1-py3-none-any.whl",
     visibility = ["PUBLIC"],
 )
 
@@ -392,14 +362,8 @@ prebuilt_python_library(
 )
 
 prebuilt_python_library(
-    name = "jupyterlab",
-    binary_src = "jupyterlab-4.5.1-py3-none-any.whl",
-    visibility = ["PUBLIC"],
-)
-
-prebuilt_python_library(
-    name = "jupyterlab_pygments",
-    binary_src = "jupyterlab_pygments-0.3.0-py3-none-any.whl",
+    name = "jinja2",
+    binary_src = "jinja2-3.1.6-py3-none-any.whl",
     visibility = ["PUBLIC"],
 )
 
@@ -410,20 +374,20 @@ prebuilt_python_library(
 )
 
 prebuilt_python_library(
-    name = "jupyterlab_widgets",
-    binary_src = "jupyterlab_widgets-3.0.16-py3-none-any.whl",
+    name = "jupyterlab",
+    binary_src = "jupyterlab-4.5.1-py3-none-any.whl",
     visibility = ["PUBLIC"],
 )
 
 prebuilt_python_library(
-    name = "kiwisolver",
-    binary_src = "kiwisolver-1.4.9-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.whl",
+    name = "jupyter_console",
+    binary_src = "jupyter_console-6.6.3-py3-none-any.whl",
     visibility = ["PUBLIC"],
 )
 
 prebuilt_python_library(
-    name = "lark",
-    binary_src = "lark-1.3.1-py3-none-any.whl",
+    name = "jupyter_client",
+    binary_src = "jupyter_client-8.7.0-py3-none-any.whl",
     visibility = ["PUBLIC"],
 )
 
@@ -434,14 +398,14 @@ prebuilt_python_library(
 )
 
 prebuilt_python_library(
-    name = "markupsafe",
-    binary_src = "markupsafe-3.0.3-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl",
+    name = "jupyterlab_pygments",
+    binary_src = "jupyterlab_pygments-0.3.0-py3-none-any.whl",
     visibility = ["PUBLIC"],
 )
 
 prebuilt_python_library(
-    name = "matplotlib",
-    binary_src = "matplotlib-3.10.8-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.whl",
+    name = "lark",
+    binary_src = "lark-1.3.1-py3-none-any.whl",
     visibility = ["PUBLIC"],
 )
 
@@ -452,20 +416,44 @@ prebuilt_python_library(
 )
 
 prebuilt_python_library(
+    name = "matplotlib",
+    binary_src = "matplotlib-3.10.8-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.whl",
+    visibility = ["PUBLIC"],
+)
+
+prebuilt_python_library(
+    name = "mypy_extensions",
+    binary_src = "mypy_extensions-1.1.0-py3-none-any.whl",
+    visibility = ["PUBLIC"],
+)
+
+prebuilt_python_library(
+    name = "kiwisolver",
+    binary_src = "kiwisolver-1.4.9-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.whl",
+    visibility = ["PUBLIC"],
+)
+
+prebuilt_python_library(
+    name = "markupsafe",
+    binary_src = "markupsafe-3.0.3-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl",
+    visibility = ["PUBLIC"],
+)
+
+prebuilt_python_library(
     name = "mccabe",
     binary_src = "mccabe-0.7.0-py2.py3-none-any.whl",
     visibility = ["PUBLIC"],
 )
 
 prebuilt_python_library(
-    name = "mistune",
-    binary_src = "mistune-3.1.4-py3-none-any.whl",
+    name = "jupyterlab_widgets",
+    binary_src = "jupyterlab_widgets-3.0.16-py3-none-any.whl",
     visibility = ["PUBLIC"],
 )
 
 prebuilt_python_library(
-    name = "mpmath",
-    binary_src = "mpmath-1.3.0-py3-none-any.whl",
+    name = "ipykernel",
+    binary_src = "ipykernel-7.1.0-py3-none-any.whl",
     visibility = ["PUBLIC"],
 )
 
@@ -482,20 +470,8 @@ prebuilt_python_library(
 )
 
 prebuilt_python_library(
-    name = "mypy_extensions",
-    binary_src = "mypy_extensions-1.1.0-py3-none-any.whl",
-    visibility = ["PUBLIC"],
-)
-
-prebuilt_python_library(
-    name = "nbclient",
-    binary_src = "nbclient-0.10.2-py3-none-any.whl",
-    visibility = ["PUBLIC"],
-)
-
-prebuilt_python_library(
-    name = "nbconvert",
-    binary_src = "nbconvert-7.16.6-py3-none-any.whl",
+    name = "mpmath",
+    binary_src = "mpmath-1.3.0-py3-none-any.whl",
     visibility = ["PUBLIC"],
 )
 
@@ -506,14 +482,32 @@ prebuilt_python_library(
 )
 
 prebuilt_python_library(
-    name = "nest_asyncio",
-    binary_src = "nest_asyncio-1.6.0-py3-none-any.whl",
+    name = "nbconvert",
+    binary_src = "nbconvert-7.16.6-py3-none-any.whl",
     visibility = ["PUBLIC"],
 )
 
 prebuilt_python_library(
     name = "networkx",
     binary_src = "networkx-3.6.1-py3-none-any.whl",
+    visibility = ["PUBLIC"],
+)
+
+prebuilt_python_library(
+    name = "mistune",
+    binary_src = "mistune-3.1.4-py3-none-any.whl",
+    visibility = ["PUBLIC"],
+)
+
+prebuilt_python_library(
+    name = "nest_asyncio",
+    binary_src = "nest_asyncio-1.6.0-py3-none-any.whl",
+    visibility = ["PUBLIC"],
+)
+
+prebuilt_python_library(
+    name = "notebook_shim",
+    binary_src = "notebook_shim-0.2.4-py3-none-any.whl",
     visibility = ["PUBLIC"],
 )
 
@@ -530,104 +524,14 @@ prebuilt_python_library(
 )
 
 prebuilt_python_library(
-    name = "notebook_shim",
-    binary_src = "notebook_shim-0.2.4-py3-none-any.whl",
-    visibility = ["PUBLIC"],
-)
-
-prebuilt_python_library(
     name = "numpy",
     binary_src = "numpy-2.2.6-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl",
     visibility = ["PUBLIC"],
 )
 
 prebuilt_python_library(
-    name = "nvidia_cublas",
-    binary_src = "nvidia_cublas-13.0.0.19-py3-none-manylinux_2_27_x86_64.whl",
-    visibility = ["PUBLIC"],
-)
-
-prebuilt_python_library(
-    name = "nvidia_cuda_cupti",
-    binary_src = "nvidia_cuda_cupti-13.0.48-py3-none-manylinux_2_25_x86_64.whl",
-    visibility = ["PUBLIC"],
-)
-
-prebuilt_python_library(
-    name = "nvidia_cuda_nvrtc",
-    binary_src = "nvidia_cuda_nvrtc-13.0.48-py3-none-manylinux2010_x86_64.manylinux_2_12_x86_64.whl",
-    visibility = ["PUBLIC"],
-)
-
-prebuilt_python_library(
-    name = "nvidia_cuda_runtime",
-    binary_src = "nvidia_cuda_runtime-13.0.48-py3-none-manylinux2014_x86_64.manylinux_2_17_x86_64.whl",
-    visibility = ["PUBLIC"],
-)
-
-prebuilt_python_library(
-    name = "nvidia_cudnn_cu13",
-    binary_src = "nvidia_cudnn_cu13-9.13.0.50-py3-none-manylinux_2_27_x86_64.whl",
-    visibility = ["PUBLIC"],
-)
-
-prebuilt_python_library(
-    name = "nvidia_cufft",
-    binary_src = "nvidia_cufft-12.0.0.15-py3-none-manylinux2014_x86_64.manylinux_2_17_x86_64.whl",
-    visibility = ["PUBLIC"],
-)
-
-prebuilt_python_library(
-    name = "nvidia_cufile",
-    binary_src = "nvidia_cufile-1.15.0.42-py3-none-manylinux2014_x86_64.manylinux_2_17_x86_64.whl",
-    visibility = ["PUBLIC"],
-)
-
-prebuilt_python_library(
-    name = "nvidia_curand",
-    binary_src = "nvidia_curand-10.4.0.35-py3-none-manylinux_2_27_x86_64.whl",
-    visibility = ["PUBLIC"],
-)
-
-prebuilt_python_library(
-    name = "nvidia_cusolver",
-    binary_src = "nvidia_cusolver-12.0.3.29-py3-none-manylinux_2_27_x86_64.whl",
-    visibility = ["PUBLIC"],
-)
-
-prebuilt_python_library(
-    name = "nvidia_cusparse",
-    binary_src = "nvidia_cusparse-12.6.2.49-py3-none-manylinux2014_x86_64.manylinux_2_17_x86_64.whl",
-    visibility = ["PUBLIC"],
-)
-
-prebuilt_python_library(
-    name = "nvidia_cusparselt_cu13",
-    binary_src = "nvidia_cusparselt_cu13-0.8.0-py3-none-manylinux2014_x86_64.whl",
-    visibility = ["PUBLIC"],
-)
-
-prebuilt_python_library(
-    name = "nvidia_nccl_cu13",
-    binary_src = "nvidia_nccl_cu13-2.27.7-py3-none-manylinux2014_x86_64.manylinux_2_17_x86_64.whl",
-    visibility = ["PUBLIC"],
-)
-
-prebuilt_python_library(
-    name = "nvidia_nvjitlink",
-    binary_src = "nvidia_nvjitlink-13.0.39-py3-none-manylinux2010_x86_64.manylinux_2_12_x86_64.whl",
-    visibility = ["PUBLIC"],
-)
-
-prebuilt_python_library(
-    name = "nvidia_nvshmem_cu13",
-    binary_src = "nvidia_nvshmem_cu13-3.3.24-py3-none-manylinux2014_x86_64.manylinux_2_17_x86_64.whl",
-    visibility = ["PUBLIC"],
-)
-
-prebuilt_python_library(
-    name = "nvidia_nvtx",
-    binary_src = "nvidia_nvtx-13.0.39-py3-none-manylinux1_x86_64.manylinux_2_5_x86_64.whl",
+    name = "nbclient",
+    binary_src = "nbclient-0.10.2-py3-none-any.whl",
     visibility = ["PUBLIC"],
 )
 
@@ -638,14 +542,8 @@ prebuilt_python_library(
 )
 
 prebuilt_python_library(
-    name = "opencv_contrib_python",
-    binary_src = "opencv_contrib_python-4.12.0.88-cp37-abi3-manylinux2014_x86_64.manylinux_2_17_x86_64.whl",
-    visibility = ["PUBLIC"],
-)
-
-prebuilt_python_library(
-    name = "opencv_python",
-    binary_src = "opencv_python-4.12.0.88-cp37-abi3-manylinux2014_x86_64.manylinux_2_17_x86_64.whl",
+    name = "nvidia_cuda_runtime",
+    binary_src = "nvidia_cuda_runtime-13.0.48-py3-none-manylinux2014_x86_64.manylinux_2_17_x86_64.whl",
     visibility = ["PUBLIC"],
 )
 
@@ -656,26 +554,8 @@ prebuilt_python_library(
 )
 
 prebuilt_python_library(
-    name = "packaging",
-    binary_src = "packaging-25.0-py3-none-any.whl",
-    visibility = ["PUBLIC"],
-)
-
-prebuilt_python_library(
-    name = "pandocfilters",
-    binary_src = "pandocfilters-1.5.1-py2.py3-none-any.whl",
-    visibility = ["PUBLIC"],
-)
-
-prebuilt_python_library(
-    name = "parso",
-    binary_src = "parso-0.8.5-py2.py3-none-any.whl",
-    visibility = ["PUBLIC"],
-)
-
-prebuilt_python_library(
-    name = "pathspec",
-    binary_src = "pathspec-0.12.1-py3-none-any.whl",
+    name = "opencv_contrib_python",
+    binary_src = "opencv_contrib_python-4.12.0.88-cp37-abi3-manylinux2014_x86_64.manylinux_2_17_x86_64.whl",
     visibility = ["PUBLIC"],
 )
 
@@ -686,8 +566,44 @@ prebuilt_python_library(
 )
 
 prebuilt_python_library(
-    name = "pillow",
-    binary_src = "pillow-12.0.0-cp311-cp311-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl",
+    name = "pathspec",
+    binary_src = "pathspec-0.12.1-py3-none-any.whl",
+    visibility = ["PUBLIC"],
+)
+
+prebuilt_python_library(
+    name = "nvidia_cufile",
+    binary_src = "nvidia_cufile-1.15.0.42-py3-none-manylinux2014_x86_64.manylinux_2_17_x86_64.whl",
+    visibility = ["PUBLIC"],
+)
+
+prebuilt_python_library(
+    name = "pandocfilters",
+    binary_src = "pandocfilters-1.5.1-py2.py3-none-any.whl",
+    visibility = ["PUBLIC"],
+)
+
+prebuilt_python_library(
+    name = "opencv_python",
+    binary_src = "opencv_python-4.12.0.88-cp37-abi3-manylinux2014_x86_64.manylinux_2_17_x86_64.whl",
+    visibility = ["PUBLIC"],
+)
+
+prebuilt_python_library(
+    name = "nvidia_nvtx",
+    binary_src = "nvidia_nvtx-13.0.39-py3-none-manylinux1_x86_64.manylinux_2_5_x86_64.whl",
+    visibility = ["PUBLIC"],
+)
+
+prebuilt_python_library(
+    name = "parso",
+    binary_src = "parso-0.8.5-py2.py3-none-any.whl",
+    visibility = ["PUBLIC"],
+)
+
+prebuilt_python_library(
+    name = "packaging",
+    binary_src = "packaging-25.0-py3-none-any.whl",
     visibility = ["PUBLIC"],
 )
 
@@ -698,32 +614,32 @@ prebuilt_python_library(
 )
 
 prebuilt_python_library(
+    name = "nvidia_cuda_cupti",
+    binary_src = "nvidia_cuda_cupti-13.0.48-py3-none-manylinux_2_25_x86_64.whl",
+    visibility = ["PUBLIC"],
+)
+
+prebuilt_python_library(
     name = "pluggy",
     binary_src = "pluggy-1.6.0-py3-none-any.whl",
     visibility = ["PUBLIC"],
 )
 
 prebuilt_python_library(
-    name = "pre_commit",
-    binary_src = "pre_commit-4.5.1-py2.py3-none-any.whl",
-    visibility = ["PUBLIC"],
-)
-
-prebuilt_python_library(
-    name = "pre_commit_hooks",
-    binary_src = "pre_commit_hooks-6.0.0-py2.py3-none-any.whl",
-    visibility = ["PUBLIC"],
-)
-
-prebuilt_python_library(
-    name = "prometheus_client",
-    binary_src = "prometheus_client-0.23.1-py3-none-any.whl",
+    name = "pillow",
+    binary_src = "pillow-12.0.0-cp311-cp311-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl",
     visibility = ["PUBLIC"],
 )
 
 prebuilt_python_library(
     name = "prompt_toolkit",
     binary_src = "prompt_toolkit-3.0.52-py3-none-any.whl",
+    visibility = ["PUBLIC"],
+)
+
+prebuilt_python_library(
+    name = "pre_commit",
+    binary_src = "pre_commit-4.5.1-py2.py3-none-any.whl",
     visibility = ["PUBLIC"],
 )
 
@@ -740,14 +656,8 @@ prebuilt_python_library(
 )
 
 prebuilt_python_library(
-    name = "ptyprocess",
-    binary_src = "ptyprocess-0.7.0-py2.py3-none-any.whl",
-    visibility = ["PUBLIC"],
-)
-
-prebuilt_python_library(
-    name = "pure_eval",
-    binary_src = "pure_eval-0.2.3-py3-none-any.whl",
+    name = "nvidia_nvshmem_cu13",
+    binary_src = "nvidia_nvshmem_cu13-3.3.24-py3-none-manylinux2014_x86_64.manylinux_2_17_x86_64.whl",
     visibility = ["PUBLIC"],
 )
 
@@ -758,8 +668,14 @@ prebuilt_python_library(
 )
 
 prebuilt_python_library(
-    name = "pygments",
-    binary_src = "pygments-2.19.2-py3-none-any.whl",
+    name = "ptyprocess",
+    binary_src = "ptyprocess-0.7.0-py2.py3-none-any.whl",
+    visibility = ["PUBLIC"],
+)
+
+prebuilt_python_library(
+    name = "prometheus_client",
+    binary_src = "prometheus_client-0.23.1-py3-none-any.whl",
     visibility = ["PUBLIC"],
 )
 
@@ -770,8 +686,8 @@ prebuilt_python_library(
 )
 
 prebuilt_python_library(
-    name = "pyopengl",
-    binary_src = "pyopengl-3.1.10-py3-none-any.whl",
+    name = "pre_commit_hooks",
+    binary_src = "pre_commit_hooks-6.0.0-py2.py3-none-any.whl",
     visibility = ["PUBLIC"],
 )
 
@@ -788,14 +704,8 @@ prebuilt_python_library(
 )
 
 prebuilt_python_library(
-    name = "python_dateutil",
-    binary_src = "python_dateutil-2.9.0.post0-py2.py3-none-any.whl",
-    visibility = ["PUBLIC"],
-)
-
-prebuilt_python_library(
-    name = "python_json_logger",
-    binary_src = "python_json_logger-4.0.0-py3-none-any.whl",
+    name = "pure_eval",
+    binary_src = "pure_eval-0.2.3-py3-none-any.whl",
     visibility = ["PUBLIC"],
 )
 
@@ -812,20 +722,8 @@ prebuilt_python_library(
 )
 
 prebuilt_python_library(
-    name = "referencing",
-    binary_src = "referencing-0.37.0-py3-none-any.whl",
-    visibility = ["PUBLIC"],
-)
-
-prebuilt_python_library(
-    name = "requests",
-    binary_src = "requests-2.32.5-py3-none-any.whl",
-    visibility = ["PUBLIC"],
-)
-
-prebuilt_python_library(
-    name = "rfc3339_validator",
-    binary_src = "rfc3339_validator-0.1.4-py2.py3-none-any.whl",
+    name = "pyopengl",
+    binary_src = "pyopengl-3.1.10-py3-none-any.whl",
     visibility = ["PUBLIC"],
 )
 
@@ -836,14 +734,50 @@ prebuilt_python_library(
 )
 
 prebuilt_python_library(
-    name = "rfc3987_syntax",
-    binary_src = "rfc3987_syntax-1.1.0-py3-none-any.whl",
+    name = "python_json_logger",
+    binary_src = "python_json_logger-4.0.0-py3-none-any.whl",
+    visibility = ["PUBLIC"],
+)
+
+prebuilt_python_library(
+    name = "pygments",
+    binary_src = "pygments-2.19.2-py3-none-any.whl",
+    visibility = ["PUBLIC"],
+)
+
+prebuilt_python_library(
+    name = "rfc3339_validator",
+    binary_src = "rfc3339_validator-0.1.4-py2.py3-none-any.whl",
+    visibility = ["PUBLIC"],
+)
+
+prebuilt_python_library(
+    name = "referencing",
+    binary_src = "referencing-0.30.2-py3-none-any.whl",
+    visibility = ["PUBLIC"],
+)
+
+prebuilt_python_library(
+    name = "send2trash",
+    binary_src = "Send2Trash-1.8.3-py3-none-any.whl",
     visibility = ["PUBLIC"],
 )
 
 prebuilt_python_library(
     name = "rpds_py",
     binary_src = "rpds_py-0.30.0-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl",
+    visibility = ["PUBLIC"],
+)
+
+prebuilt_python_library(
+    name = "requests",
+    binary_src = "requests-2.32.5-py3-none-any.whl",
+    visibility = ["PUBLIC"],
+)
+
+prebuilt_python_library(
+    name = "setuptools",
+    binary_src = "setuptools-80.9.0-py3-none-any.whl",
     visibility = ["PUBLIC"],
 )
 
@@ -866,50 +800,14 @@ prebuilt_python_library(
 )
 
 prebuilt_python_library(
-    name = "send2trash",
-    binary_src = "Send2Trash-1.8.3-py3-none-any.whl",
+    name = "nvidia_cublas",
+    binary_src = "nvidia_cublas-13.0.0.19-py3-none-manylinux_2_27_x86_64.whl",
     visibility = ["PUBLIC"],
 )
 
 prebuilt_python_library(
-    name = "setuptools",
-    binary_src = "setuptools-80.9.0-py3-none-any.whl",
-    visibility = ["PUBLIC"],
-)
-
-prebuilt_python_library(
-    name = "shellingham",
-    binary_src = "shellingham-1.5.4-py2.py3-none-any.whl",
-    visibility = ["PUBLIC"],
-)
-
-prebuilt_python_library(
-    name = "six",
-    binary_src = "six-1.17.0-py2.py3-none-any.whl",
-    visibility = ["PUBLIC"],
-)
-
-prebuilt_python_library(
-    name = "soupsieve",
-    binary_src = "soupsieve-2.8-py3-none-any.whl",
-    visibility = ["PUBLIC"],
-)
-
-prebuilt_python_library(
-    name = "stack_data",
-    binary_src = "stack_data-0.6.3-py3-none-any.whl",
-    visibility = ["PUBLIC"],
-)
-
-prebuilt_python_library(
-    name = "sympy",
-    binary_src = "sympy-1.14.0-py3-none-any.whl",
-    visibility = ["PUBLIC"],
-)
-
-prebuilt_python_library(
-    name = "terminado",
-    binary_src = "terminado-0.18.1-py3-none-any.whl",
+    name = "python_dateutil",
+    binary_src = "python_dateutil-2.9.0-py2.py3-none-any.whl",
     visibility = ["PUBLIC"],
 )
 
@@ -920,8 +818,56 @@ prebuilt_python_library(
 )
 
 prebuilt_python_library(
+    name = "soupsieve",
+    binary_src = "soupsieve-2.8-py3-none-any.whl",
+    visibility = ["PUBLIC"],
+)
+
+prebuilt_python_library(
+    name = "terminado",
+    binary_src = "terminado-0.18.1-py3-none-any.whl",
+    visibility = ["PUBLIC"],
+)
+
+prebuilt_python_library(
+    name = "six",
+    binary_src = "six-1.17.0-py2.py3-none-any.whl",
+    visibility = ["PUBLIC"],
+)
+
+prebuilt_python_library(
+    name = "sympy",
+    binary_src = "sympy-1.14.0-py3-none-any.whl",
+    visibility = ["PUBLIC"],
+)
+
+prebuilt_python_library(
+    name = "rfc3987_syntax",
+    binary_src = "rfc3987_syntax-1.1.0-py3-none-any.whl",
+    visibility = ["PUBLIC"],
+)
+
+prebuilt_python_library(
+    name = "shellingham",
+    binary_src = "shellingham-1.5.4-py2.py3-none-any.whl",
+    visibility = ["PUBLIC"],
+)
+
+prebuilt_python_library(
+    name = "stack_data",
+    binary_src = "stack_data-0.6.3-py3-none-any.whl",
+    visibility = ["PUBLIC"],
+)
+
+prebuilt_python_library(
     name = "tomlkit",
     binary_src = "tomlkit-0.13.3-py3-none-any.whl",
+    visibility = ["PUBLIC"],
+)
+
+prebuilt_python_library(
+    name = "toml",
+    binary_src = "toml-0.10.2-py2.py3-none-any.whl",
     visibility = ["PUBLIC"],
 )
 
@@ -932,62 +878,8 @@ prebuilt_python_library(
 )
 
 prebuilt_python_library(
-    name = "tornado",
-    binary_src = "tornado-6.5.4-cp39-abi3-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_17_x86_64.manylinux2014_x86_64.whl",
-    visibility = ["PUBLIC"],
-)
-
-prebuilt_python_library(
-    name = "tqdm",
-    binary_src = "tqdm-4.67.1-py3-none-any.whl",
-    visibility = ["PUBLIC"],
-)
-
-prebuilt_python_library(
-    name = "traitlets",
-    binary_src = "traitlets-5.14.3-py3-none-any.whl",
-    visibility = ["PUBLIC"],
-)
-
-prebuilt_python_library(
     name = "triton",
     binary_src = "triton-3.5.1-cp311-cp311-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl",
-    visibility = ["PUBLIC"],
-)
-
-prebuilt_python_library(
-    name = "typer_slim",
-    binary_src = "typer_slim-0.20.0-py3-none-any.whl",
-    visibility = ["PUBLIC"],
-)
-
-prebuilt_python_library(
-    name = "typing_extensions",
-    binary_src = "typing_extensions-4.15.0-py3-none-any.whl",
-    visibility = ["PUBLIC"],
-)
-
-prebuilt_python_library(
-    name = "tzdata",
-    binary_src = "tzdata-2025.3-py2.py3-none-any.whl",
-    visibility = ["PUBLIC"],
-)
-
-prebuilt_python_library(
-    name = "uri_template",
-    binary_src = "uri_template-1.3.0-py3-none-any.whl",
-    visibility = ["PUBLIC"],
-)
-
-prebuilt_python_library(
-    name = "urllib3",
-    binary_src = "urllib3-2.6.2-py3-none-any.whl",
-    visibility = ["PUBLIC"],
-)
-
-prebuilt_python_library(
-    name = "virtualenv",
-    binary_src = "virtualenv-20.35.4-py3-none-any.whl",
     visibility = ["PUBLIC"],
 )
 
@@ -1004,14 +896,68 @@ prebuilt_python_library(
 )
 
 prebuilt_python_library(
-    name = "webencodings",
-    binary_src = "webencodings-0.5.1-py2.py3-none-any.whl",
+    name = "virtualenv",
+    binary_src = "virtualenv-20.35.4-py3-none-any.whl",
+    visibility = ["PUBLIC"],
+)
+
+prebuilt_python_library(
+    name = "tzdata",
+    binary_src = "tzdata-2025.3-py2.py3-none-any.whl",
+    visibility = ["PUBLIC"],
+)
+
+prebuilt_python_library(
+    name = "traitlets",
+    binary_src = "traitlets-5.14.3-py3-none-any.whl",
+    visibility = ["PUBLIC"],
+)
+
+prebuilt_python_library(
+    name = "tornado",
+    binary_src = "tornado-6.5.4-cp39-abi3-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_17_x86_64.manylinux2014_x86_64.whl",
+    visibility = ["PUBLIC"],
+)
+
+prebuilt_python_library(
+    name = "uri_template",
+    binary_src = "uri_template-1.3.0-py3-none-any.whl",
     visibility = ["PUBLIC"],
 )
 
 prebuilt_python_library(
     name = "websocket_client",
     binary_src = "websocket_client-1.9.0-py3-none-any.whl",
+    visibility = ["PUBLIC"],
+)
+
+prebuilt_python_library(
+    name = "typer_slim",
+    binary_src = "typer_slim-0.20.0-py3-none-any.whl",
+    visibility = ["PUBLIC"],
+)
+
+prebuilt_python_library(
+    name = "typing_extensions",
+    binary_src = "typing_extensions-4.15.0-py3-none-any.whl",
+    visibility = ["PUBLIC"],
+)
+
+prebuilt_python_library(
+    name = "tqdm",
+    binary_src = "tqdm-4.67.1-py3-none-any.whl",
+    visibility = ["PUBLIC"],
+)
+
+prebuilt_python_library(
+    name = "webencodings",
+    binary_src = "webencodings-0.5.1-py2.py3-none-any.whl",
+    visibility = ["PUBLIC"],
+)
+
+prebuilt_python_library(
+    name = "urllib3",
+    binary_src = "urllib3-2.6.2-py3-none-any.whl",
     visibility = ["PUBLIC"],
 )
 
@@ -1028,19 +974,55 @@ prebuilt_python_library(
 )
 
 prebuilt_python_library(
-    name = "hypothesis",
-    binary_src = "hypothesis-6.148.7-py3-none-any.whl",
+    name = "nvidia_nvjitlink",
+    binary_src = "nvidia_nvjitlink-13.0.39-py3-none-manylinux2010_x86_64.manylinux_2_12_x86_64.whl",
     visibility = ["PUBLIC"],
 )
 
 prebuilt_python_library(
-    name = "sortedcontainers",
-    binary_src = "sortedcontainers-2.4.0-py2.py3-none-any.whl",
+    name = "nvidia_curand",
+    binary_src = "nvidia_curand-10.4.0.35-py3-none-manylinux_2_27_x86_64.whl",
     visibility = ["PUBLIC"],
 )
 
 prebuilt_python_library(
-    name = "toml",
-    binary_src = "toml-0.10.2-py2.py3-none-any.whl",
+    name = "nvidia_cufft",
+    binary_src = "nvidia_cufft-12.0.0.15-py3-none-manylinux2014_x86_64.manylinux_2_17_x86_64.whl",
+    visibility = ["PUBLIC"],
+)
+
+prebuilt_python_library(
+    name = "nvidia_cusparse",
+    binary_src = "nvidia_cusparse-12.6.2.49-py3-none-manylinux2014_x86_64.manylinux_2_17_x86_64.whl",
+    visibility = ["PUBLIC"],
+)
+
+prebuilt_python_library(
+    name = "nvidia_nccl_cu13",
+    binary_src = "nvidia_nccl_cu13-2.27.7-py3-none-manylinux2014_x86_64.manylinux_2_17_x86_64.whl",
+    visibility = ["PUBLIC"],
+)
+
+prebuilt_python_library(
+    name = "nvidia_cuda_nvrtc",
+    binary_src = "nvidia_cuda_nvrtc-13.0.48-py3-none-manylinux2010_x86_64.manylinux_2_12_x86_64.whl",
+    visibility = ["PUBLIC"],
+)
+
+prebuilt_python_library(
+    name = "nvidia_cusolver",
+    binary_src = "nvidia_cusolver-12.0.3.29-py3-none-manylinux_2_27_x86_64.whl",
+    visibility = ["PUBLIC"],
+)
+
+prebuilt_python_library(
+    name = "nvidia_cudnn_cu13",
+    binary_src = "nvidia_cudnn_cu13-9.13.0.50-py3-none-manylinux_2_27_x86_64.whl",
+    visibility = ["PUBLIC"],
+)
+
+prebuilt_python_library(
+    name = "nvidia_cusparselt_cu13",
+    binary_src = "nvidia_cusparselt_cu13-0.8.0-py3-none-manylinux2014_x86_64.whl",
     visibility = ["PUBLIC"],
 )

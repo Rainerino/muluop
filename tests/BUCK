@@ -1,0 +1,13 @@
+python_test(
+    name = "test_dummy",
+    srcs = ["test_dummy.py"],
+    deps = [],
+)
+
+test_suite(
+    name = "all",
+    tests = [
+        ":test_dummy",
+    ],
+)
+

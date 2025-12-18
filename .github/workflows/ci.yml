@@ -1,0 +1,61 @@
+name: CI
+
+on:
+  push:
+    branches: [ main, master ]
+  pull_request:
+    branches: [ main, master ]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v4
+    
+    - name: Install dependencies
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y zstd
+    
+    - name: Install Buck2
+      run: |
+        curl -fsSL https://github.com/facebook/buck2/releases/download/2024-12-11/buck2-x86_64-unknown-linux-gnu.zst -o buck2.zst || \
+        curl -fsSL https://github.com/facebook/buck2/releases/latest/download/buck2-x86_64-unknown-linux-gnu.zst -o buck2.zst
+        zstd -d buck2.zst
+        chmod +x buck2
+        sudo mv buck2 /usr/local/bin/
+    
+    - name: Set up Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: '3.11'
+    
+    - name: Install pip
+      run: |
+        python -m ensurepip --upgrade
+        python -m pip install --upgrade pip
+    
+    - name: Install uv
+      run: |
+        curl -LsSf https://astral.sh/uv/install.sh | sh
+        echo "$HOME/.cargo/bin" >> $GITHUB_PATH
+    
+    - name: Cache Python dependencies
+      uses: actions/cache@v4
+      with:
+        path: |
+          third_party/python/wheels
+        key: ${{ runner.os }}-wheels-${{ hashFiles('third_party/requirements.txt') }}
+        restore-keys: |
+          ${{ runner.os }}-wheels-
+    
+    - name: Vendor dependencies
+      run: |
+        mkdir -p third_party/python/wheels
+        buck2 run //third_party:update_deps
+    
+    - name: Run tests
+      run: |
+        buck2 test //tests:all
+

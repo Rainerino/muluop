@@ -1,0 +1,33 @@
+repos:
+  - repo: local
+    hooks:
+      # 1. Native Buck2 Linter
+      # This runs Buck2's internal linter on all Starlark files.
+      # It catches unused imports, undefined variables, and type errors.
+      - id: buck2-lint
+        name: Buck2 Starlark Lint
+        entry: buck2 starlark lint
+        language: system
+        types_or: [bazel, python] 
+        files: '.*\.bzl$|BUCK$|PACKAGE$'
+        pass_filenames: true
+
+      # 2. Buildifier (Formatting)
+      # Buck2 generally relies on Buildifier for *formatting* (spacing/indentation).
+      # We run this BEFORE the linter.
+      - id: buildifier
+        name: Buildifier Format
+        entry: buck2 run //tools:buildifier -- -mode=fix
+        language: system
+        types_or: [bazel, python]
+        files: '.*\.bzl$|BUCK$|PACKAGE$'
+        pass_filenames: true
+
+      # 3. Buck2 Audit (Optional but recommended)
+      # This checks if your 'load()' statements are correct and efficient.
+      - id: buck2-audit
+        name: Buck2 Audit Includes
+        entry: buck2 audit includes
+        language: system
+        files: 'BUCK$'
+        pass_filenames: true

@@ -1,0 +1,19 @@
+# third_party/BUCK
+
+sh_binary(
+    name = "update_deps",
+    main = "vendor.sh",
+    # CHANGE THIS: Use 'resources' so the file is available, not linked
+    resources = [":generate_tool"], 
+)
+
+sh_binary(
+    name = "torch_deps",
+    main = "vendor_torch.sh",
+    resources = [":generate_tool"], 
+)
+
+export_file(
+    name = "generate_tool",
+    src = "generate.py",
+)

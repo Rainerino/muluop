@@ -1,0 +1,28 @@
+python_binary(
+    name = "sim",
+    main = "mu_info.py",
+    deps = [
+        # Reference the generated targets from your vendor script.
+        # Format: //path/to/wheels:sanitized_name
+        # If you had numpy, it would look like this:
+        "//third_party/python/wheels:mujoco",
+        "//third_party/python/wheels:typing_extensions",
+        "//third_party/python/wheels:glfw",
+        "//third_party/python/wheels:numpy",
+    ]
+)
+
+python_binary(
+    name = "torch_info",
+    main = "torch_info.py",
+    deps = [
+        # Reference the generated targets from your vendor script.
+        # Format: //path/to/wheels:sanitized_name
+        # If you had numpy, it would look like this:
+        "//third_party/python/torch:torch",
+        "//third_party/python/wheels:typing_extensions",
+        "//third_party/python/wheels:eclipse_ecal",
+        "//third_party/cuda:cudart",
+        "//third_party/cuda:cublas",
+    ],
+)

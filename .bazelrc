@@ -12,3 +12,14 @@ build --experimental_disk_cache_gc_idle_delay=5m
 common:pre-commit --ui_event_filters=-info,-stdout,-stderr
 # common:pre-commit --noshow_progress
 common:pre-commit --lockfile_mode=off
+
+build:remote --bes_results_url=http://127.0.0.1:8080/invocation/
+build:remote --bes_backend=grpc://127.0.0.1:1985
+build:remote --remote_cache=grpc://127.0.0.1:1985
+build:remote --noremote_upload_local_results
+build:remote --remote_timeout=10m
+
+build:remote --remote_executor=grpc://grpc://127.0.0.1:1985
+build:remote --remote_download_outputs=minimal
+build:remote --spawn_strategy=remote
+build:remote --remote_local_fallback    

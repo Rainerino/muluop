@@ -24,6 +24,3 @@
 
 [build]
   execution_platforms = prelude//platforms:default
-
-[python]
-  interpreter = /usr/bin/python3.11

@@ -4,17 +4,6 @@ load("@aspect_rules_py//py:defs.bzl", "py_binary")
 load("@rules_multirun//:defs.bzl", "multirun")
 load("@rules_uv//uv:pip.bzl", "pip_compile")
 load("@rules_uv//uv:venv.bzl", "create_venv")
-load("@pre-commit-bazel//:defs.bzl", "pre_commit_setup")
-
-pre_commit_setup(
-    name = "install_hooks",
-    hooks = {
-        "tests": "bazel test //...",
-        "lint": "bazel run //:lint",
-        "format": "bazel run //:format",
-        "typecheck": "bazel test //... --test_tag_filters=mypy",
-    },
-)
 
 pip_compile(
     name = "requirements_lock_cu128",

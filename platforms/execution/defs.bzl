@@ -24,7 +24,7 @@ def _execution_platform_impl(ctx: AnalysisContext) -> list[Provider]:
                 "Arch": "x86_64",
                 "Pool": "default",
                 # IMPORTANT: use an image your executor can actually pull
-                "container-image": "docker://docker.io/library/ubuntu:22.04",
+                "container-image": "docker://docker.m.daocloud.io/library/ubuntu:22.04",
             },
             remote_execution_use_case = "buck2-default",
             use_windows_path_separators = ctx.attrs.use_windows_path_separators,

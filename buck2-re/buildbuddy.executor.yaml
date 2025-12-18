@@ -6,7 +6,7 @@ executor:
   arch: "x86_64"
 
   # Avoid pulling the default GCR warmup image :contentReference[oaicite:2]{index=2}
-  default_image: "daocloud.io/library/ubuntu:22.04"
+  default_image: "docker.m.daocloud.io/library/ubuntu:22.04"
 
   # Pick one isolation path:
 

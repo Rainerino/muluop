@@ -18,10 +18,3 @@ system_cxx_toolchain(
     visibility = ["PUBLIC"],
 )
 
-
-remote_execution_properties = {
-    "OSFamily": "Linux",
-    # Do NOT change this to "podman://". 
-    # "docker://" is the standard protocol identifier for OCI images in RBE.
-    "container-image": "docker://ubuntu:20.04", 
-},

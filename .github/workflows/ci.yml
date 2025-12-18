@@ -40,13 +40,14 @@ jobs:
       run: |
         curl -LsSf https://astral.sh/uv/install.sh | sh
         echo "$HOME/.cargo/bin" >> $GITHUB_PATH
+        uv venv .venv --python 3.11.13 --seed --clear
     
     - name: Cache Python dependencies
       uses: actions/cache@v4
       with:
         path: |
           third_party/python/wheels
-        key: ${{ runner.os }}-wheels-${{ hashFiles('third_party/requirements.txt') }}
+        key: ${{ runner.os }}-wheels-${{ hashFiles('third_party/python/requirements.txt') }}
         restore-keys: |
           ${{ runner.os }}-wheels-
     

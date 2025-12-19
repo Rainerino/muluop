@@ -1,6 +1,7 @@
 load("@aspect_rules_py//py:defs.bzl", "py_binary", "py_library", "py_test")
 load("@pip_sim//:requirements.bzl", sim_requirement = "requirement")
 load("@pip_compute//:requirements.bzl", compute_requirement = "requirement")
+
 py_library(
     name = "lib",
     srcs = ["lib.py"],
@@ -9,7 +10,7 @@ py_library(
 
 py_binary(
     name = "torch",
-    srcs = ["torch_test.py"],
+    srcs = ["torch_info.py"],
     deps = [
         compute_requirement("torch"),
         compute_requirement("numpy"),  # Required by torch
@@ -39,4 +40,5 @@ py_test(
         compute_requirement("pytest"),
         ":lib"
     ],
+    size = "small",
 )

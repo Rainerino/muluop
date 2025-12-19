@@ -18,6 +18,8 @@ pip_compile(
         "--generate-hashes",
         "--emit-index-url",
         "--no-strip-extras",
+        "--prerelease=allow",
+        "--index-strategy unsafe-best-match",
         # "--quiet",
         
         # Your custom flags
@@ -48,6 +50,8 @@ pip_compile(
         "--generate-hashes",
         "--emit-index-url",
         "--no-strip-extras",
+        "--prerelease=allow",
+        "--index-strategy unsafe-best-match",
         # "--quiet",
         
         # Your custom flags

@@ -24,6 +24,14 @@ def jupyter_lab(name, deps = [], **kwargs):
         main = "//tools/jupyter:wrapper.py",
         # We pass the LABEL (string) so the wrapper knows what to 'bazel run'
         args = ["--kernel_target", full_kernel_label],
-        deps = [requirement("jupyterlab")],
+        deps = [
+            requirement("jupyterlab"),
+            requirement("jupyter-resource-usage"),
+            requirement("ipywidgets"),
+            requirement("jupyterlab_git"),
+            requirement("jupyterlab-lsp"),
+            requirement("jupyterlab-spellchecker"),
+            requirement("jupyterlab-code-formatter"),
+        ],
         **kwargs
     )

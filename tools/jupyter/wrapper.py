@@ -48,9 +48,26 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument("--kernel_target", help="The Bazel label (//pkg:target)")
     args, unknown_args = parser.parse_known_args()
-    
     # Remove our custom flag so Jupyter doesn't see it
     sys.argv = [sys.argv[0]] + unknown_args
+    
+    workspace_dir = os.environ.get("BUILD_WORKSPACE_DIRECTORY")
+    
+    if workspace_dir:
+        print(f"[BazelWrapper] Setting notebook root to: {workspace_dir}")
+        sys.argv.append(f"--notebook-dir={workspace_dir}")
+    else:
+        # 2. Fallback: If variable is missing, warn the user
+        print("-----------------------------------------------------------")
+        print("[BazelWrapper] WARNING: BUILD_WORKSPACE_DIRECTORY is not set!")
+        print("  - Are you running this with 'bazel run'?")
+        print("  - If you run ./bazel-bin/... directly, this var is missing.")
+        print("  - DEFAULTING TO SANDBOX ROOT. Your files may be LOST after build.")
+        print("-----------------------------------------------------------")
+        # Default to wherever the script is running (usually the sandbox root)
+        sys.argv.append(f"--notebook-dir={os.getcwd()}")
+
+
 
     if args.kernel_target:
         register_bazel_kernel(args.kernel_target)

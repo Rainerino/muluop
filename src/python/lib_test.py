@@ -1,5 +1,5 @@
 import unittest
-from src.lib import greet, add
+from lib import greet, add
 
 
 class LibTest(unittest.TestCase):

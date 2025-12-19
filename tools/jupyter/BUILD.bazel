@@ -1,0 +1,4 @@
+package(default_visibility = ["//visibility:public"])
+
+# Export the wrapper and the bzl file so other packages can use them
+exports_files(["wrapper.py", "defs.bzl"])

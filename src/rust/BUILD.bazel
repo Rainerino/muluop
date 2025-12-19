@@ -1,0 +1,22 @@
+load("@rules_rust//rust:defs.bzl", "rust_binary", "rust_library", "rust_test")
+
+rust_library(
+    name = "muluop_rust",
+    srcs = ["lib.rs"],
+    crate_name = "muluop_rust",
+    visibility = ["//visibility:public"],
+)
+
+rust_binary(
+    name = "hello",
+    srcs = ["main.rs"],
+    deps = [":muluop_rust"],
+    visibility = ["//visibility:public"],
+)
+
+rust_test(
+    name = "hello_test",
+    srcs = ["hello_test.rs"],
+    deps = [":muluop_rust"],
+    size = "small",
+)

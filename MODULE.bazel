@@ -10,6 +10,12 @@ bazel_dep(name = "rules_uv", version = "0.89.2")
 bazel_dep(name = "rules_multirun", version = "0.13.0")
 bazel_dep(name = "rules_mypy", version = "0.40.0")
 
+bazel_dep(name = "rules_cc", version = "0.1.5")
+bazel_dep(name = "rules_rust", version = "0.48.0")
+bazel_dep(name = "rules_nodejs", version = "6.6.2")
+bazel_dep(name = "aspect_rules_ts", version = "1.4.0")
+bazel_dep(name = "aspect_rules_js", version = "1.39.0")
+
 
 # Python 3.11 + cuda 12.8 for compute
 python = use_extension("@rules_python//python:extensions.bzl", "python")
@@ -39,4 +45,13 @@ pip.parse(
 
 
 use_repo(pip, "pip_compute", "pip_sim")
+
+# Rust toolchain
+rust = use_extension("@rules_rust//rust:extensions.bzl", "rust")
+rust.toolchain(
+    edition = "2021",
+    versions = ["1.80.0"],
+)
+use_repo(rust, "rust_toolchains")
+
 

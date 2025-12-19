@@ -4,7 +4,8 @@ load("@pip_compute//:requirements.bzl", compute_requirement = "requirement")
 
 py_library(
     name = "lib",
-    srcs = ["lib.py"],
+    srcs = ["lib/__init__.py"],
+    imports = ["."],
     visibility = ["//visibility:public"],
 )
 

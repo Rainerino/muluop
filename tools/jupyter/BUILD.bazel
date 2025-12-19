@@ -1,4 +1,8 @@
 package(default_visibility = ["//visibility:public"])
 
-# Export the wrapper and the bzl file so other packages can use them
-exports_files(["wrapper.py", "defs.bzl"])
+# You must export these so the macro can use them in other packages
+exports_files([
+    "defs.bzl",
+    "wrapper.py",
+    "kernel_wrapper.py",  # <--- ADD THIS
+])

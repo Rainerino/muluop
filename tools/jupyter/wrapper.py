@@ -2,64 +2,64 @@ import sys
 import os
 import json
 import tempfile
+import argparse
 import jupyterlab
 from jupyter_client.kernelspec import KernelSpecManager
 from jupyterlab.labapp import main
 
-def register_bazel_kernel():
+def register_bazel_kernel(kernel_target):
     """
-    Registers the current Bazel Python environment as a Jupyter Kernel.
+    Creates a kernel.json that invokes 'bazel run //path/to:kernel'
     """
-    kernel_name = "bazel_kernel"
-    
+    print(f"[BazelWrapper] Registering kernel target: {kernel_target}")
+
     with tempfile.TemporaryDirectory() as td:
-        os.chmod(td, 0o755) 
+        os.chmod(td, 0o755)
         
+        # --- THIS IS THE KEY PART YOU ASKED FOR ---
+        # We write a physical kernel.json file to disk
         kernel_json = {
             "argv": [
-                sys.executable,
-                "-m", "ipykernel",
+                "bazel", "run", kernel_target, 
+                "--", 
                 "-f", "{connection_file}"
             ],
-            "display_name": "Bazel Python (Current)",
+            "display_name": "Bazel Kernel (Hot Reload)",
             "language": "python",
         }
+        # ------------------------------------------
 
         with open(os.path.join(td, "kernel.json"), "w") as f:
             json.dump(kernel_json, f)
 
-        try:
-            KernelSpecManager().install_kernel_spec(
-                source_dir=td,
-                kernel_name=kernel_name,
-                user=True,
-                # replace_existing=True
-            )
-            print(f"[BazelWrapper] Registered kernel '{kernel_name}'")
-        except Exception as e:
-            print(f"[BazelWrapper] Failed to register kernel: {e}")
-            
+        # Install the kernel spec from the directory we just made
+        KernelSpecManager().install_kernel_spec(
+            source_dir=td,
+            kernel_name="bazel_kernel",
+            user=True,
+            # replace_existing=True
+        )
+
+def get_bazel_app_dir():
+    current_path = os.path.dirname(jupyterlab.__file__)
+    return current_path
+
 if __name__ == "__main__":
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--kernel_target", help="The Bazel label (//pkg:target)")
+    args, unknown_args = parser.parse_known_args()
     
-    register_bazel_kernel()
-    # 1. Dynamically find where Bazel put the assets
-    #    (This finds the directory relative to the python package)
-    jlab_dir = os.path.join(os.path.dirname(jupyterlab.__file__),)
+    # Remove our custom flag so Jupyter doesn't see it
+    sys.argv = [sys.argv[0]] + unknown_args
+
+    if args.kernel_target:
+        register_bazel_kernel(args.kernel_target)
     
-    # Check if the standard 'share' folder exists instead (common in pip installs)
-    # Walk up from site-packages to find share/jupyter/lab
-    current = os.path.dirname(jupyterlab.__file__)
-    for _ in range(4): # Check 4 levels up
-        candidate = os.path.join(current, 'share', 'jupyter', 'lab')
-        if os.path.exists(os.path.join(candidate, 'static', 'index.html')):
-            jlab_dir = candidate
-            break
-        current = os.path.dirname(current)
+    app_dir = get_bazel_app_dir()
+    if app_dir:
+        sys.argv.append(f"--app-dir={app_dir}")
 
-    print(f"[BazelWrapper] Setting app-dir to: {jlab_dir}")
-
-    # 2. Inject the argument programmatically
-    #    This is equivalent to running "jupyter lab --app-dir=..."
-    sys.argv.append(f"--app-dir={jlab_dir}")
-
+    # Prevent config pollution
+    os.environ["JUPYTER_CONFIG_DIR"] = os.path.join(os.getcwd(), ".jupyter_config")
+    
     sys.exit(main())

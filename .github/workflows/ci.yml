@@ -12,27 +12,54 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      # --- ADDED STEP START ---
-      # This action removes pre-installed tools (Android, Dotnet, etc.)
-      # to prevent "No space left on device" errors during Bazel builds.
-      - name: Free Disk Space (Ubuntu)
-        uses: jlumbroso/free-disk-space@v1.3.1
-        with:
-          tool-cache: true
-          android: true
-          dotnet: true
-          haskell: true
-          large-packages: true
-          docker-images: true
-          swap-storage: true
-      # --- ADDED STEP END ---
+      # 1. THE FAST CLEANUP
+      # We delete the Android SDK. It is huge (10GB+) and you don't need it.
+      # This is safe because this runner will be destroyed after the job.
+      - name: Free Disk Space (Fast)
+        run: |
+          echo "Disk space before cleanup:"
+          df -h
+          sudo rm -rf /usr/local/lib/android
+          sudo rm -rf /usr/share/dotnet
+          echo "Disk space after cleanup:"
+          df -h
 
+      # 2. SETUP BAZEL
       - name: Setup Bazel
         uses: bazelbuild/setup-bazelisk@v3
 
-      - name: Build
-        # Adding --disk_cache is optional but recommended if you add caching later
-        run: bazel build //...
+      # 3. CONFIGURE CACHE (For Speed)
+      # We cache the Bazel folder so future runs don't re-download/re-build everything.
+      - name: Mount Bazel Cache
+        uses: actions/cache@v4
+        with:
+          path: "~/.cache/bazel"
+          key: bazel-${{ runner.os }}-${{ hashFiles('**/*.bzl', 'MODULE.bazel', 'WORKSPACE') }}
+          restore-keys: bazel-${{ runner.os }}-
 
+      # 4. BUILD
+      # We use --disk_cache to tell Bazel to use the folder we just mounted.
+      - name: Build
+        run: |
+          bazel build \
+            --disk_cache=~/.cache/bazel \
+            --repository_cache=~/.cache/bazel/repo_cache \
+            //...
+
+      # 5. TEST
       - name: Test
-        run: bazel test //...
+        run: |
+          bazel test \
+            --disk_cache=~/.cache/bazel \
+            --repository_cache=~/.cache/bazel/repo_cache \
+            //...
+
+      # 6. SAVE ARTIFACTS (For You)
+      # This uploads the built Python wheels (.whl) so you can download them from GitHub.
+      - name: Upload Wheels
+        if: success()
+        uses: actions/upload-artifact@v4
+        with:
+          name: python-wheels
+          # Adjust this path if your wheels are in a specific subfolder
+          path: bazel-bin/**/*.whl

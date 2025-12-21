@@ -7,6 +7,11 @@ dependencies = [
     "eclipse-ecal>=6.0.1",
     "numpy>=2.0.0",
     "hydra-core>=1.3.0",
+    "eclipse-zenoh>=1.7.1",
+    "pynng>=0.8.1",
+    "pyzmq>=27.1.0",
+    "iceoryx2>=0.7.0",
+    "grpcio>=1.76.0",
 ]
 
 [project.optional-dependencies]

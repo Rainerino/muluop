@@ -1,5 +1,6 @@
 # Common settings
 common --enable_bzlmod
+
 common --symlink_prefix=build/
 common --distdir=third_party/dists
 # Test output

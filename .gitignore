@@ -26,3 +26,5 @@ venv/
 app-data/
 
 redis-data/
+
+.ipynb_checkpoints/

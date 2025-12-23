@@ -1,4 +1,9 @@
-# model-based trajectory smoother
+This is a bazel vs buck2 test
+
+- set up on different language
+- build speed test, ease of use test
+- jupyter lab support
+
 
 Install bazel via bazelisk
 
